@@ -2,6 +2,11 @@ package ru.nsu.kuzminov;
 
 
 public class Main {
+
+    /**
+     * Sort array using heapSort
+     * @param arr is an integer array
+     */
     static void heapSort(int[] arr) {
         int size = arr.length;
         for (int i = size / 2 - 1; i >= 0; i--)
@@ -14,8 +19,13 @@ public class Main {
         }
     }
 
-
-    static void heapify(int[] arr, int i, int size) {
+    /**
+     * heapify checks if the subtree with root i is a heap
+     * @param arr is the integer the array
+     * @param i is the root of the subtree
+     * @param size is the size of the subtree
+     */
+    private static void heapify(int[] arr, int i, int size) {
         int l = i * 2 + 1;
         int r = i * 2 + 2;
         int max = i;
