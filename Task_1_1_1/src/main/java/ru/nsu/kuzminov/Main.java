@@ -1,11 +1,51 @@
 package ru.nsu.kuzminov;
 
+
 public class Main {
-    public static int aga(int a)
-    {
-        return a;
+    static void heapSort(int[] arr){
+        int size = arr.length;
+        for(int i = size/2 - 1; i >= 0; i--)
+            heapify(arr, i, size);
+        for(int i = size - 1; i >= 0; i--)
+        {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+            heapify(arr, 0, i);
+        }
     }
+
+
+    static void heapify(int[] arr, int i, int size)
+    {
+        int l = i * 2 + 1;
+        int r = i * 2 + 2;
+        int max = i;
+
+        if (l < size && arr[max] < arr[l])
+        {
+            max = l;
+        }
+        if (r < size && arr[max] < arr[r])
+        {
+            max = r;
+        }
+
+        if (max != i)
+        {
+            int temp = arr[i];
+            arr[i] = arr[max];
+            arr[max] = temp;
+
+            heapify(arr, max, size);
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        int[] arr = {-1};
+        heapSort(arr);
+        for (int j : arr) {
+            System.out.print(j + " ");
+        }
     }
 }
