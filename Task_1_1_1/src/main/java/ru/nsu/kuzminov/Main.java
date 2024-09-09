@@ -2,12 +2,11 @@ package ru.nsu.kuzminov;
 
 
 public class Main {
-    static void heapSort(int[] arr){
+    static void heapSort(int[] arr) {
         int size = arr.length;
-        for(int i = size/2 - 1; i >= 0; i--)
+        for (int i = size / 2 - 1; i >= 0; i--)
             heapify(arr, i, size);
-        for(int i = size - 1; i >= 0; i--)
-        {
+        for (int i = size - 1; i >= 0; i--) {
             int temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;
@@ -16,23 +15,19 @@ public class Main {
     }
 
 
-    static void heapify(int[] arr, int i, int size)
-    {
+    static void heapify(int[] arr, int i, int size) {
         int l = i * 2 + 1;
         int r = i * 2 + 2;
         int max = i;
 
-        if (l < size && arr[max] < arr[l])
-        {
+        if (l < size && arr[max] < arr[l]) {
             max = l;
         }
-        if (r < size && arr[max] < arr[r])
-        {
+        if (r < size && arr[max] < arr[r]) {
             max = r;
         }
 
-        if (max != i)
-        {
+        if (max != i) {
             int temp = arr[i];
             arr[i] = arr[max];
             arr[max] = temp;
