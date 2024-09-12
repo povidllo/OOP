@@ -25,7 +25,7 @@ public class Main {
      * @param i is the root of the subtree
      * @param size is the size of the subtree
      */
-    private static void heapify(int[] arr, int i, int size) {
+    public static void heapify(int[] arr, int i, int size) {
         int l = i * 2 + 1;
         int r = i * 2 + 2;
         int max = i;
