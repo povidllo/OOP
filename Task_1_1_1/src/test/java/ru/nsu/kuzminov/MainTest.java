@@ -66,7 +66,7 @@ class MainTest {
         assertArrayEquals(expArr, testArr);
 
         testArr = new int[]{1, 2, 3, 4, 5, 6, 7};
-        expArr = new int[]{1,2,7,4,5,6,3};
+        expArr = new int[]{1, 2, 7, 4, 5, 6, 3};
         Main.heapify(testArr, 2, testArr.length);
         assertArrayEquals(expArr, testArr);
 
