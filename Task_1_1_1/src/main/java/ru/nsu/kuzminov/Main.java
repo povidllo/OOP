@@ -5,6 +5,7 @@ public class Main {
 
     /**
      * Sort array using heapSort
+     *
      * @param arr is an integer array
      */
     static void heapSort(int[] arr) {
@@ -21,8 +22,9 @@ public class Main {
 
     /**
      * heapify checks if the subtree with root i is a heap
-     * @param arr is the integer the array
-     * @param i is the root of the subtree
+     *
+     * @param arr  is the integer the array
+     * @param i    is the root of the subtree
      * @param size is the size of the subtree
      */
     public static void heapify(int[] arr, int i, int size) {
@@ -47,10 +49,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int[] testArr = {1,2,3,4,5,6, 7};
+        int[] testArr = {1, 2, 3, 4, 5, 6, 7};
         Main.heapify(testArr, 2, testArr.length);
-        for(int i:testArr)
-        {
+        for (int i : testArr) {
             System.out.println(i);
         }
     }
