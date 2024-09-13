@@ -40,10 +40,11 @@ public class Deck {
      * @return last card from the deck
      */
     public Card takeCard() {
-        if (count == 0)
+        if (count == 0) {
             createNewDeck();
+        }
         count--;
-        return deck.removeLast();
+        return deck.remove(deck.size() - 1);
     }
 
 
