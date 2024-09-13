@@ -33,11 +33,11 @@ class BlackjackTest {
 
         Card givenCard = game.giveCard(game.player);
         assertNotNull(givenCard);
-        assertEquals(game.player.cards.getFirst(), givenCard);
+        assertEquals(game.player.cards.get(0), givenCard);
 
         givenCard = game.giveCard(game.dealer);
         assertNotNull(givenCard);
-        assertEquals(game.dealer.cards.getFirst(), givenCard);
+        assertEquals(game.dealer.cards.get(0), givenCard);
     }
 
     @Test
