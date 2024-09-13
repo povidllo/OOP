@@ -6,8 +6,9 @@ public class Card {
     private String name;
 
     /**
-     *Constructor
-     * @param newVal value of the card
+     * Constructor
+     *
+     * @param newVal  value of the card
      * @param newName name of the card
      */
     public Card(int newVal, String newName) {
@@ -31,6 +32,7 @@ public class Card {
 
     /**
      * set new card value
+     *
      * @param newVal new card value
      */
     public void setVal(int newVal) {

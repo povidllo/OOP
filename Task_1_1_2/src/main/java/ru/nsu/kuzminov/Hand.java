@@ -17,6 +17,7 @@ public class Hand {
 
     /**
      * add card in hand
+     *
      * @param newCard the card we put into our hand
      */
     public void addCard(Card newCard) {
@@ -25,8 +26,9 @@ public class Hand {
 
     /**
      * print out hand
+     *
      * @param flagHide - 1 if we need print dealer cards with hidden card, else 0
-     * @param who - 0 if player, 1 if dealer
+     * @param who      - 0 if player, 1 if dealer
      */
     public void printCards(int flagHide, int who) {
         if (flagHide == 1) {
