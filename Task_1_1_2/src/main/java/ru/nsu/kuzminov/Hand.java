@@ -2,7 +2,9 @@ package ru.nsu.kuzminov;
 
 import java.util.ArrayList;
 
-
+/**
+ * Представляет класс Руки
+ */
 public class Hand {
     public ArrayList<Card> cards;
     public int score;

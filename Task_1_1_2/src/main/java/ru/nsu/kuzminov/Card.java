@@ -1,6 +1,8 @@
 package ru.nsu.kuzminov;
 
-
+/**
+ * Представляет класс одной карты со значением и именем
+ */
 public class Card {
     private int val;
     private final String name;

@@ -3,6 +3,9 @@ package ru.nsu.kuzminov;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Класс нашей игры
+ */
 public class Blackjack {
 
     Deck gameDeck;
@@ -146,6 +149,11 @@ public class Blackjack {
         return num;
     }
 
+    /**
+     * Происходит обработка хода игрока
+     *
+     * @param scanner сканер
+     */
     public void processPlayersHand(Scanner scanner) {
         while (true) {
             System.out.println("Ваш ход\n-------");
@@ -163,6 +171,9 @@ public class Blackjack {
         }
     }
 
+    /**
+     * Происходит обработка хода дилера
+     */
     public void processDealerHand() {
         while (dealer.score < 17 && dealer.score < player.score) {
             System.out.println("Ход дилера\n-------");

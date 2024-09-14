@@ -3,6 +3,9 @@ package ru.nsu.kuzminov;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Представляет класс Колоды
+ */
 public class Deck {
     public ArrayList<Card> deck;
     public int count;
