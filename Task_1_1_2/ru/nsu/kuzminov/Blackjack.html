@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -154,7 +154,7 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">Blackjack</a></span>()</code></th>
 <td class="colLast">
-<div class="block">constructor</div>
+<div class="block">Конструктор</div>
 </td>
 </tr>
 </table>
@@ -178,32 +178,58 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="Hand.html" title="class in ru.nsu.kuzminov">Hand</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkWin()">checkWin</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Проверяет есть ли победитель на данный момент или нет</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dealCard()">dealCard</a></span>()</code></th>
 <td class="colLast">
-<div class="block">give 2 cards to dealer and player</div>
+<div class="block">Дает по две карты диллеру и игроку</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#game()">game</a></span>()</code></th>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterNumToContinue(java.util.Scanner)">enterNumToContinue</a></span>&#8203;(java.util.Scanner&nbsp;scanner)</code></th>
 <td class="colLast">
-<div class="block">run main game</div>
+<div class="block">Предлагает пользователю ввести 1 или 0 для продолжения или завершения игры соответственно</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="Card.html" title="class in ru.nsu.kuzminov">Card</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#giveCard(ru.nsu.kuzminov.Hand)">giveCard</a></span>&#8203;(<a href="Hand.html" title="class in ru.nsu.kuzminov">Hand</a>&nbsp;hand)</code></th>
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#game(java.util.Scanner)">game</a></span>&#8203;(java.util.Scanner&nbsp;scanner)</code></th>
 <td class="colLast">
-<div class="block">give card to chosen hand</div>
+<div class="block">Запускает основную игру</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="Card.html" title="class in ru.nsu.kuzminov">Card</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#giveCard(ru.nsu.kuzminov.Hand)">giveCard</a></span>&#8203;(<a href="Hand.html" title="class in ru.nsu.kuzminov">Hand</a>&nbsp;hand)</code></th>
+<td class="colLast">
+<div class="block">Дает карту выбранной руке</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(java.lang.String[]&nbsp;args)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printWinner(int)">printWinner</a></span>&#8203;(int&nbsp;flagMiddleGame)</code></th>
+<td class="colLast">
+<div class="block">Выводит или не выводит победителя</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processDealerHand()">processDealerHand</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPlayersHand(java.util.Scanner)">processPlayersHand</a></span>&#8203;(java.util.Scanner&nbsp;scanner)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -237,7 +263,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>Blackjack</h4>
 <pre>public&nbsp;Blackjack()</pre>
-<div class="block">constructor</div>
+<div class="block">Конструктор</div>
 </li>
 </ul>
 </li>
@@ -257,7 +283,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>dealCard</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;dealCard()</pre>
-<div class="block">give 2 cards to dealer and player</div>
+<div class="block">Дает по две карты диллеру и игроку</div>
 </li>
 </ul>
 <a id="giveCard(ru.nsu.kuzminov.Hand)">
@@ -267,12 +293,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>giveCard</h4>
 <pre class="methodSignature">public&nbsp;<a href="Card.html" title="class in ru.nsu.kuzminov">Card</a>&nbsp;giveCard&#8203;(<a href="Hand.html" title="class in ru.nsu.kuzminov">Hand</a>&nbsp;hand)</pre>
-<div class="block">give card to chosen hand</div>
+<div class="block">Дает карту выбранной руке</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>hand</code> - chosen hand</dd>
+<dd><code>hand</code> - выбранная рука</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>given card</dd>
+<dd>возвращает выданную карту</dd>
 </dl>
 </li>
 </ul>
@@ -283,20 +309,71 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>checkWin</h4>
 <pre class="methodSignature">public&nbsp;<a href="Hand.html" title="class in ru.nsu.kuzminov">Hand</a>&nbsp;checkWin()</pre>
+<div class="block">Проверяет есть ли победитель на данный момент или нет</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>winner, if there's no winner then return null</dd>
+<dd>hand победителя если таковой имеется или null в противном случае</dd>
 </dl>
 </li>
 </ul>
-<a id="game()">
+<a id="printWinner(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>printWinner</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;printWinner&#8203;(int&nbsp;flagMiddleGame)</pre>
+<div class="block">Выводит или не выводит победителя</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>flagMiddleGame</code> - 1 если мы вызываем данную функцию после хода игрока</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true если победитель был выведен или false иначе</dd>
+</dl>
+</li>
+</ul>
+<a id="enterNumToContinue(java.util.Scanner)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>enterNumToContinue</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;enterNumToContinue&#8203;(java.util.Scanner&nbsp;scanner)</pre>
+<div class="block">Предлагает пользователю ввести 1 или 0 для продолжения или завершения игры соответственно</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scanner</code> - наш сканер</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>возвращает введенное число если оно 1 или 0</dd>
+</dl>
+</li>
+</ul>
+<a id="processPlayersHand(java.util.Scanner)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processPlayersHand</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;processPlayersHand&#8203;(java.util.Scanner&nbsp;scanner)</pre>
+</li>
+</ul>
+<a id="processDealerHand()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processDealerHand</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;processDealerHand()</pre>
+</li>
+</ul>
+<a id="game(java.util.Scanner)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>game</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;game()</pre>
-<div class="block">run main game</div>
+<pre class="methodSignature">public&nbsp;void&nbsp;game&#8203;(java.util.Scanner&nbsp;scanner)</pre>
+<div class="block">Запускает основную игру</div>
 </li>
 </ul>
 <a id="main(java.lang.String[])">
