@@ -19,6 +19,8 @@ public class Card {
     }
 
     /**
+     * Возвращает значение карты.
+     *
      * @return Возвращает значение карты.
      */
     public int showValue() {
@@ -26,6 +28,8 @@ public class Card {
     }
 
     /**
+     * Возвращает имя карты.
+     *
      * @return Возвращает имя карты.
      */
     public String showName() {

@@ -34,8 +34,8 @@ public class Hand {
      */
     public void printCards(int flagHide, int who) {
         if (flagHide == 1) {
-            System.out.println("    Карты дилера: [" + cards.get(0).showName() +
-                    " (" + cards.get(0).showValue() + "), <закрытая карта>]");
+            System.out.println("    Карты дилера: [" + cards.get(0).showName()
+                    + " (" + cards.get(0).showValue() + "), <закрытая карта>]");
             return;
         }
         if (who == 0) {  // player

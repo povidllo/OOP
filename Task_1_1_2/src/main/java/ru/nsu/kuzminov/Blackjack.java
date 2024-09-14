@@ -139,8 +139,9 @@ public class Blackjack {
         while (true) {
             try {
                 num = scanner.nextInt();
-                if (num == 0 || num == 1)
+                if (num == 0 || num == 1) {
                     break;
+                }
             } catch (InputMismatchException exception) {
                 System.out.println("Введите “1”, чтобы взять карту, и “0”, чтобы остановиться .");
                 scanner.next();
@@ -162,8 +163,8 @@ public class Blackjack {
 
             if (ans == 1) {
                 Card newCard = giveCard(player);
-                System.out.println("Вы открыли карту " + newCard.showName() +
-                        " (" + newCard.showValue() + ")");
+                System.out.println("Вы открыли карту " + newCard.showName()
+                        + " (" + newCard.showValue() + ")");
                 player.printCards(0, 0);
                 dealer.printCards(1, 1);
             } else {
@@ -179,8 +180,8 @@ public class Blackjack {
         while (dealer.score < 17 && dealer.score < player.score) {
             System.out.println("Ход дилера\n-------");
             Card takenCard = giveCard(dealer);
-            System.out.println("Дилер открывает карту " + takenCard.showName() +
-                    "(" + takenCard.showValue() + ")");
+            System.out.println("Дилер открывает карту " + takenCard.showName()
+                    + "(" + takenCard.showValue() + ")");
             player.printCards(0, 0);
             dealer.printCards(0, 1);
         }
@@ -211,9 +212,9 @@ public class Blackjack {
             processPlayersHand(scanner);
 
             System.out.println("Ход дилера\n-------");
-            System.out.println("Дилер открывает закрытую карту " +
-                    dealer.cards.get(1).showName() + " (" +
-                    dealer.cards.get(1).showValue() + ")");
+            System.out.println("Дилер открывает закрытую карту "
+                    + dealer.cards.get(1).showName() + " ("
+                    + dealer.cards.get(1).showValue() + ")");
             player.printCards(0, 0);
             dealer.printCards(0, 1);
 
@@ -233,6 +234,11 @@ public class Blackjack {
         }
     }
 
+    /**
+     * main.
+     *
+     * @param args аргс.
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Blackjack game = new Blackjack();

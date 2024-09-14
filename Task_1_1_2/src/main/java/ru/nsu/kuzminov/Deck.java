@@ -11,7 +11,7 @@ public class Deck {
     public int count;
 
     /**
-     * Конструктор
+     * Конструктор.
      */
     public Deck() {
         createNewDeck();
