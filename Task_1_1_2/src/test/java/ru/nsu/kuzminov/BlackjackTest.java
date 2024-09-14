@@ -1,8 +1,10 @@
 package ru.nsu.kuzminov;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Scanner;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class BlackjackTest {
     @Test
@@ -27,7 +29,7 @@ class BlackjackTest {
     }
 
     @Test
-    void giveCard() {
+    void testGiveCard() {
         Blackjack game = new Blackjack();
 
         Card givenCard = game.giveCard(game.player);
@@ -49,5 +51,96 @@ class BlackjackTest {
         game.player.score = 20;
         game.dealer.score = 22;
         assertEquals(game.checkWin(), game.player);
+    }
+
+    @Test
+    void testPrintWinner() {
+        Blackjack game = new Blackjack();
+
+        //      ТЕСТ СЕРЕДИНЫ ИГРЫ
+
+        //Нет победителя в середине игры
+        game.player.score = 10;
+        game.dealer.score = 11;
+        assertFalse(game.printWinner(1));
+
+        //Игрок победитель в середине игры со счетом 21
+        game.player.score = 21;
+        game.dealer.score = 11;
+        assertTrue(game.printWinner(1));
+
+        //Дилер победитель в середине игры со счетом 21
+        game.player.score = 10;
+        game.dealer.score = 21;
+        assertTrue(game.printWinner(1));
+
+        //Игрок победитель в середине игры со счетом больше 21
+        game.player.score = 31;
+        game.dealer.score = 11;
+        assertTrue(game.printWinner(1));
+
+        //Дилер победитель в середине игры со счетом больше 21
+        game.player.score = 10;
+        game.dealer.score = 32;
+        assertTrue(game.printWinner(1));
+
+
+        //      ТЕСТ КОНЦА ИГРЫ
+        //Игрок победитель в конце игры со счетом 21
+        game.player.score = 21;
+        game.dealer.score = 11;
+        assertTrue(game.printWinner(0));
+
+        //Дилер победитель в конце игры со счетом 21
+        game.player.score = 10;
+        game.dealer.score = 21;
+        assertTrue(game.printWinner(0));
+
+        //Игрок победитель в конце игры со счетом больше 21
+        game.player.score = 31;
+        game.dealer.score = 11;
+        assertTrue(game.printWinner(0));
+
+        //Дилер победитель в конце игры со счетом больше 21
+        game.player.score = 10;
+        game.dealer.score = 32;
+        assertTrue(game.printWinner(0));
+
+        //Ничья
+        game.player.score = 21;
+        game.dealer.score = 21;
+        assertTrue(game.printWinner(0));
+    }
+
+    @Test
+    void testEnterNumToContinue() {
+        Blackjack blackjack = new Blackjack();
+
+        //Проверяем 1
+        Scanner scanner = new Scanner("1\n");
+        int result = blackjack.enterNumToContinue(scanner);
+        assertEquals(1, result);
+
+        //Проверяем 0
+        scanner = new Scanner("0\n");
+        result = blackjack.enterNumToContinue(scanner);
+        assertEquals(0, result);
+
+        //Проверяем неправильный ввод без ошибки
+        scanner = new Scanner("2\n1\n");
+        result = blackjack.enterNumToContinue(scanner);
+        assertEquals(1, result);
+
+        //Проверяем неправильный ввод с ошибкой
+        scanner = new Scanner("abs\n1\n");
+        result = blackjack.enterNumToContinue(scanner);
+        assertEquals(1, result);
+    }
+
+    @Test
+    void testGame() {
+        Blackjack blackjack = new Blackjack();
+        Scanner scanner = new Scanner("1\n1\n0\n0\n1\n1\n0\n0\n");
+        blackjack.game(scanner);
     }
 }
