@@ -8,7 +8,7 @@ public class Hand {
     public int score;
 
     /**
-     * constructor
+     * Конструктор
      */
     public Hand() {
         score = 0;
@@ -16,19 +16,19 @@ public class Hand {
     }
 
     /**
-     * add card in hand
+     * Добавляет карту в руку
      *
-     * @param newCard the card we put into our hand
+     * @param newCard Новая карта, которую добавляем
      */
     public void addCard(Card newCard) {
         cards.add(newCard);
     }
 
     /**
-     * print out hand
+     * Выводим нашу руку
      *
-     * @param flagHide - 1 if we need print dealer cards with hidden card, else 0
-     * @param who      - 0 if player, 1 if dealer
+     * @param flagHide - 1 если на нужно вывести одну открытую, одну спрятанную карту дилера, иначе 0
+     * @param who      - 0 если игрок, 1 если дилер
      */
     public void printCards(int flagHide, int who) {
         if (flagHide == 1) {
@@ -47,6 +47,5 @@ public class Hand {
             }
         }
         System.out.println("] => " + score);
-        return;
     }
 }

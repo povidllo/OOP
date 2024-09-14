@@ -3,13 +3,13 @@ package ru.nsu.kuzminov;
 
 public class Card {
     private int val;
-    private String name;
+    private final String name;
 
     /**
-     * Constructor
+     * Конструктор
      *
-     * @param newVal  value of the card
-     * @param newName name of the card
+     * @param newVal  Значение карты
+     * @param newName Имя карты
      */
     public Card(int newVal, String newName) {
         val = newVal;
@@ -17,23 +17,23 @@ public class Card {
     }
 
     /**
-     * @return card value
+     * @return Возвращает значение карты
      */
     public int showValue() {
         return val;
     }
 
     /**
-     * @return card name
+     * @return Возвращает имя карты
      */
     public String showName() {
         return name;
     }
 
     /**
-     * set new card value
+     * Устанавливает новое значение для карты
      *
-     * @param newVal new card value
+     * @param newVal Новое значение карты
      */
     public void setVal(int newVal) {
         val = newVal;

@@ -6,9 +6,11 @@ import java.util.Scanner;
 public class Blackjack {
 
     Deck gameDeck;
-    Hand player, dealer;
+    Hand player;
+    Hand dealer;
     int round;
-    int playerScore, dealerScore;
+    int playerScore;
+    int dealerScore;
     //turn 0 is player, 1 is dealer
 
     /**

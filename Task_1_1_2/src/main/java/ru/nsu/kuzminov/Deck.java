@@ -1,18 +1,21 @@
 package ru.nsu.kuzminov;
 
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
     public ArrayList<Card> deck;
     public int count;
 
+    /**
+     * Конструктор
+     */
     public Deck() {
         createNewDeck();
     }
 
     /**
-     * constructor assistant
+     * Помощник для конструктора
      */
     public void createNewDeck() {
         deck = new ArrayList<Card>(52);
@@ -37,7 +40,7 @@ public class Deck {
     }
 
     /**
-     * @return last card from the deck
+     * @return Возвращает последнюю карту с колоды
      */
     public Card takeCard() {
         if (count == 0) {

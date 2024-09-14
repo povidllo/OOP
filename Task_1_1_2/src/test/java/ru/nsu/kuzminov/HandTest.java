@@ -1,9 +1,9 @@
 package ru.nsu.kuzminov;
 
-import org.junit.jupiter.api.Test;
 import java.io.PrintStream;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class HandTest {
 
