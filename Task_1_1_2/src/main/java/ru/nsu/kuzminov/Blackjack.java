@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Класс нашей игры
+ * Класс нашей игры.
  */
 public class Blackjack {
 
@@ -17,7 +17,7 @@ public class Blackjack {
     //turn 0 is player, 1 is dealer
 
     /**
-     * Конструктор
+     * Конструктор.
      */
     public Blackjack() {
         gameDeck = new Deck();
@@ -29,7 +29,7 @@ public class Blackjack {
     }
 
     /**
-     * Дает по две карты диллеру и игроку
+     * Дает по две карты дилеру и игроку.
      */
     public void dealCard() {
         for (int i = 0; i < 2; i++) {
@@ -39,10 +39,10 @@ public class Blackjack {
     }
 
     /**
-     * Дает карту выбранной руке
+     * Дает карту выбранной руке.
      *
-     * @param hand выбранная рука
-     * @return возвращает выданную карту
+     * @param hand выбранная рука.
+     * @return возвращает выданную карту.
      */
     public Card giveCard(Hand hand) {
         Card newCard = gameDeck.takeCard();
@@ -60,9 +60,9 @@ public class Blackjack {
     }
 
     /**
-     * Проверяет есть ли победитель на данный момент или нет
+     * Проверяет есть ли победитель на данный момент или нет.
      *
-     * @return hand победителя если таковой имеется или null в противном случае
+     * @return hand победителя если таковой имеется или null в противном случае.
      */
     public Hand checkWin() {
         if (player.score > 21 || dealer.score == 21) {
@@ -74,10 +74,10 @@ public class Blackjack {
     }
 
     /**
-     * Выводит или не выводит победителя
+     * Выводит или не выводит победителя.
      *
-     * @param flagMiddleGame 1 если мы вызываем данную функцию после хода игрока
-     * @return true если победитель был выведен или false иначе
+     * @param flagMiddleGame 1 если мы вызываем данную функцию после хода игрока.
+     * @return true если победитель был выведен или false иначе.
      */
     public boolean printWinner(int flagMiddleGame) {
         //если только что закончилась часть игры, где игрок выбирал карты
@@ -128,10 +128,10 @@ public class Blackjack {
     }
 
     /**
-     * Предлагает пользователю ввести 1 или 0 для продолжения или завершения игры соответственно
+     * Предлагает пользователю ввести 1 или 0 для продолжения или завершения игры соответственно.
      *
-     * @param scanner наш сканер
-     * @return возвращает введенное число если оно 1 или 0
+     * @param scanner наш сканер.
+     * @return возвращает введенное число если оно 1 или 0.
      */
     public int enterNumToContinue(Scanner scanner) {
         int num;
@@ -150,9 +150,9 @@ public class Blackjack {
     }
 
     /**
-     * Происходит обработка хода игрока
+     * Происходит обработка хода игрока.
      *
-     * @param scanner сканер
+     * @param scanner сканер.
      */
     public void processPlayersHand(Scanner scanner) {
         while (true) {
@@ -162,7 +162,8 @@ public class Blackjack {
 
             if (ans == 1) {
                 Card newCard = giveCard(player);
-                System.out.println("Вы открыли карту " + newCard.showName() + " (" + newCard.showValue() + ")");
+                System.out.println("Вы открыли карту " + newCard.showName() +
+                        " (" + newCard.showValue() + ")");
                 player.printCards(0, 0);
                 dealer.printCards(1, 1);
             } else {
@@ -172,20 +173,21 @@ public class Blackjack {
     }
 
     /**
-     * Происходит обработка хода дилера
+     * Происходит обработка хода дилера.
      */
     public void processDealerHand() {
         while (dealer.score < 17 && dealer.score < player.score) {
             System.out.println("Ход дилера\n-------");
             Card takenCard = giveCard(dealer);
-            System.out.println("Дилер открывает карту " + takenCard.showName() + "(" + takenCard.showValue() + ")");
+            System.out.println("Дилер открывает карту " + takenCard.showName() +
+                    "(" + takenCard.showValue() + ")");
             player.printCards(0, 0);
             dealer.printCards(0, 1);
         }
     }
 
     /**
-     * Запускает основную игру
+     * Запускает основную игру.
      */
     public void game(Scanner scanner) {
         System.out.println("Добро пожаловать в Блэкджек!");
@@ -209,7 +211,9 @@ public class Blackjack {
             processPlayersHand(scanner);
 
             System.out.println("Ход дилера\n-------");
-            System.out.println("Дилер открывает закрытую карту " + dealer.cards.get(1).showName() + " (" + dealer.cards.get(1).showValue() + ")");
+            System.out.println("Дилер открывает закрытую карту " +
+                    dealer.cards.get(1).showName() + " (" +
+                    dealer.cards.get(1).showValue() + ")");
             player.printCards(0, 0);
             dealer.printCards(0, 1);
 
