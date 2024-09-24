@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Blackjack {
 
-    Deck gameDeck;
+    final Deck gameDeck;
     Hand player;
     Hand dealer;
     int round;
