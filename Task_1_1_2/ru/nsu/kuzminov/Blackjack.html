@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -220,19 +220,26 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printWinner(int)">printWinner</a></span>&#8203;(int&nbsp;flagMiddleGame)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printWinnerFirstHalf()">printWinnerFirstHalf</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Выводит или не выводит победителя.</div>
+<div class="block">Выводит победителя после первой половины игры, если такой присутствует.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printWinnerSecondHalf()">printWinnerSecondHalf</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Выводит победителя в конце игры если после хода игрока нет победителя.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processDealerHand()">processDealerHand</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Происходит обработка хода дилера.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPlayersHand(java.util.Scanner)">processPlayersHand</a></span>&#8203;(java.util.Scanner&nbsp;scanner)</code></th>
 <td class="colLast">
@@ -323,20 +330,28 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="printWinner(int)">
+<a id="printWinnerFirstHalf()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>printWinner</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;printWinner&#8203;(int&nbsp;flagMiddleGame)</pre>
-<div class="block">Выводит или не выводит победителя.</div>
+<h4>printWinnerFirstHalf</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;printWinnerFirstHalf()</pre>
+<div class="block">Выводит победителя после первой половины игры, если такой присутствует.</div>
 <dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>flagMiddleGame</code> - 1 если мы вызываем данную функцию после хода игрока.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true если победитель был выведен или false иначе.</dd>
+<dd>true если вывел победителя, иначе false.</dd>
 </dl>
+</li>
+</ul>
+<a id="printWinnerSecondHalf()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>printWinnerSecondHalf</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;printWinnerSecondHalf()</pre>
+<div class="block">Выводит победителя в конце игры если после хода игрока нет победителя.</div>
 </li>
 </ul>
 <a id="enterNumToContinue(java.util.Scanner)">
