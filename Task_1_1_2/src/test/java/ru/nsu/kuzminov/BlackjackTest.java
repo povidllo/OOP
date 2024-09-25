@@ -1,10 +1,10 @@
 package ru.nsu.kuzminov;
 
 import java.util.Scanner;
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 class BlackjackTest {
     @Test
