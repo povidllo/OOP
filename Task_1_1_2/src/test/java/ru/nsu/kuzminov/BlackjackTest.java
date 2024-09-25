@@ -1,6 +1,7 @@
 package ru.nsu.kuzminov;
 
 import java.util.Scanner;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -53,7 +54,7 @@ class BlackjackTest {
     }
 
     @Test
-    void testPrintWinner() {
+    void testPrintWinnerFirstHalf() {
         Blackjack game = new Blackjack();
 
         //      ТЕСТ СЕРЕДИНЫ ИГРЫ
@@ -61,54 +62,58 @@ class BlackjackTest {
         //Нет победителя в середине игры
         game.player.score = 10;
         game.dealer.score = 11;
-        assertFalse(game.printWinner(1));
+        assertFalse(game.printWinnerFirstHalf());
 
         //Игрок победитель в середине игры со счетом 21
         game.player.score = 21;
         game.dealer.score = 11;
-        assertTrue(game.printWinner(1));
+        assertTrue(game.printWinnerFirstHalf());
 
         //Дилер победитель в середине игры со счетом 21
         game.player.score = 10;
         game.dealer.score = 21;
-        assertTrue(game.printWinner(1));
+        assertTrue(game.printWinnerFirstHalf());
 
         //Игрок победитель в середине игры со счетом больше 21
         game.player.score = 31;
         game.dealer.score = 11;
-        assertTrue(game.printWinner(1));
+        assertTrue(game.printWinnerFirstHalf());
 
         //Дилер победитель в середине игры со счетом больше 21
         game.player.score = 10;
         game.dealer.score = 32;
-        assertTrue(game.printWinner(1));
+        assertTrue(game.printWinnerFirstHalf());
+    }
 
-
+    @Test
+    void testPrintWinnerSecondHalf() {
         //      ТЕСТ КОНЦА ИГРЫ
+        Blackjack game = new Blackjack();
+
         //Игрок победитель в конце игры со счетом 21
         game.player.score = 21;
         game.dealer.score = 11;
-        assertTrue(game.printWinner(0));
+        assertTrue(game.printWinnerSecondHalf());
 
         //Дилер победитель в конце игры со счетом 21
         game.player.score = 10;
         game.dealer.score = 21;
-        assertTrue(game.printWinner(0));
+        assertTrue(game.printWinnerSecondHalf());
 
         //Игрок победитель в конце игры со счетом больше 21
         game.player.score = 31;
         game.dealer.score = 11;
-        assertTrue(game.printWinner(0));
+        assertTrue(game.printWinnerSecondHalf());
 
         //Дилер победитель в конце игры со счетом больше 21
         game.player.score = 10;
         game.dealer.score = 32;
-        assertTrue(game.printWinner(0));
+        assertTrue(game.printWinnerSecondHalf());
 
         //Ничья
         game.player.score = 21;
         game.dealer.score = 21;
-        assertTrue(game.printWinner(0));
+        assertTrue(game.printWinnerSecondHalf());
     }
 
     @Test

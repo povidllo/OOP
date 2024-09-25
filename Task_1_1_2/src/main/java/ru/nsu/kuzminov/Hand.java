@@ -51,4 +51,8 @@ public class Hand {
         }
         System.out.println("] => " + score);
     }
+
+    public void clearCards() {
+        this.cards.clear();
+    }
 }

@@ -74,33 +74,37 @@ public class Blackjack {
     }
 
     /**
-     * Выводит или не выводит победителя.
+     * Выводит победителя после первой половины игры, если такой присутствует.
      *
-     * @param flagMiddleGame 1 если мы вызываем данную функцию после хода игрока.
-     * @return true если победитель был выведен или false иначе.
+     * @return true если вывел победителя, иначе false.
      */
-    public boolean printWinner(int flagMiddleGame) {
-        //если только что закончилась часть игры, где игрок выбирал карты
-        if (flagMiddleGame == 1) {
-            if (checkWin() == player) {
-                playerScore++;
-                System.out.print("Вы выиграли раунд! Счет " + playerScore + ":" + dealerScore);
-            } else if (checkWin() == dealer) {
-                dealerScore++;
-                System.out.print("Дилер выиграл! Счет " + playerScore + ":" + dealerScore);
+    public boolean printWinnerFirstHalf() {
+        if (checkWin() == player) {
+            playerScore++;
+            System.out.print("Вы выиграли раунд! Счет " + playerScore + ":" + dealerScore);
+        } else if (checkWin() == dealer) {
+            dealerScore++;
+            System.out.print("Дилер выиграл! Счет " + playerScore + ":" + dealerScore);
+        }
+        if (checkWin() != null) {
+            if (playerScore > dealerScore) {
+                System.out.println(" в вашу пользу\n");
+            } else if (dealerScore > playerScore) {
+                System.out.println(" в пользу дилера\n");
+            } else {
+                System.out.println(" Ничья\n");
             }
-            if (checkWin() != null) {
-                if (playerScore > dealerScore) {
-                    System.out.println(" в вашу пользу\n");
-                } else if (dealerScore > playerScore) {
-                    System.out.println(" в пользу дилера\n");
-                } else {
-                    System.out.println(" Ничья\n");
-                }
-                return true;
-            }
-        } else { //выводим победителя в конце игры, после хода дилера
-            Hand winner = null;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Выводит победителя в конце игры если после хода игрока нет победителя.
+     */
+    public boolean printWinnerSecondHalf() {
+        Hand winner = null;
+        try {
             if ((player.score > dealer.score || dealer.score > 21) && player.score <= 21) {
                 playerScore++;
                 System.out.print("Вы выиграли раунд! Счет " + playerScore + ":" + dealerScore);
@@ -115,16 +119,18 @@ public class Blackjack {
                 System.out.print("Ничья! Счет " + playerScore + ":" + dealerScore);
             }
 
-            if (winner == player) {
+            if (playerScore > dealerScore) {
                 System.out.println(" в вашу пользу\n");
-            } else if (winner == dealer) {
+            } else if (dealerScore > playerScore) {
                 System.out.println(" в пользу дилера\n");
             } else {
-                System.out.println(" ничья\n");
+                System.out.println(" Ничья\n");
             }
-            return true;
+        } catch (Exception exc) {
+            return false;
         }
-        return false;
+
+        return true;
     }
 
     /**
@@ -199,14 +205,14 @@ public class Blackjack {
             System.out.println("Раунд " + round);
             System.out.println("Дилер раздал карты");
 
-            player.cards.clear();
-            dealer.cards.clear();
+            player.clearCards();
+            dealer.clearCards();
             player.score = 0;
             dealer.score = 0;
 
             dealCard();
             player.printCards(0, 0);
-            player.printCards(1, 1);
+            dealer.printCards(1, 1);
 
             //Обработка руки игрока
             processPlayersHand(scanner);
@@ -220,7 +226,7 @@ public class Blackjack {
 
 
             //Вывести победиля если такой присутствует
-            boolean cont = printWinner(1);
+            boolean cont = printWinnerFirstHalf();
             if (cont) {
                 continue;
             }
@@ -229,7 +235,7 @@ public class Blackjack {
             processDealerHand();
 
             //Выводим победителя в конце игры
-            printWinner(0);
+            printWinnerSecondHalf();
 
         }
     }
