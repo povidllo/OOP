@@ -1,12 +1,12 @@
 package ru.nsu.kuzminov;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class DivTest {
     private ByteArrayOutputStream newOutStream;
@@ -19,7 +19,7 @@ class DivTest {
 
     @Test
     void testPrint() {
-        Div mulTest = new Div (new Number(5), new Number(10));
+        Div mulTest = new Div(new Number(5), new Number(10));
         mulTest.print();
 
         assertEquals("(5/10)", newOutStream.toString());
@@ -27,7 +27,7 @@ class DivTest {
 
     @Test
     void testDerivative() {
-        Div addTest = new Div (new Number(5), new Variable("x"));
+        Div addTest = new Div(new Number(5), new Variable("x"));
         Expression e = addTest.derivative("x");
         e.print();
         assertEquals("(((0*x)+(5*1))/(x*x))", newOutStream.toString());
@@ -35,13 +35,13 @@ class DivTest {
 
     @Test
     void testEvalOne() {
-        Div addTest = new Div (new Number(5), new Number(0));
+        Div addTest = new Div(new Number(5), new Number(0));
         assertThrows(ArithmeticException.class, () -> addTest.eval(""));
     }
 
     @Test
     void testEvalTwo() {
-        Div addTest = new Div (new Number(5), new Variable("x"));
+        Div addTest = new Div(new Number(5), new Variable("x"));
         double testEval = addTest.eval("x = 10");
         assertEquals(0.5, testEval);
     }

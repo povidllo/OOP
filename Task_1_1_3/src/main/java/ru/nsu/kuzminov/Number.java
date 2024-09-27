@@ -10,6 +10,7 @@ public class Number implements Expression {
 
     /**
      * Конструктор.
+     *
      * @param value присваимое значение.
      */
     public Number(int value) {
