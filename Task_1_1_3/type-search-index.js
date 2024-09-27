@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"ru.nsu.kuzminov","l":"Add"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.kuzminov","l":"Div"},{"p":"ru.nsu.kuzminov","l":"Expression"},{"p":"ru.nsu.kuzminov","l":"Main"},{"p":"ru.nsu.kuzminov","l":"Mul"},{"p":"ru.nsu.kuzminov","l":"Number"},{"p":"ru.nsu.kuzminov","l":"Variable"}]
