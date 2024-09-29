@@ -52,13 +52,10 @@ public class HeapSort {
 
     /**
      * main function.
+     *
      * @param args command line arguments.
      */
     public static void main(String[] args) {
-//        int[] testArr = {1, 2, 3, 4, 5, 6, 7};
-//        Main.heapify(testArr, 2, testArr.length);
-//        for (int i : testArr) {
-//            System.out.println(i);
-//        }
+
     }
 }
