@@ -25,4 +25,5 @@ public interface Expression {
      * @return возвращает вычисление.
      */
     double eval(String vars);
+
 }

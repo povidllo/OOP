@@ -56,7 +56,7 @@ public class Variable implements Expression {
         String newVar = var + " =";
         int ind = vars.indexOf(var);
         if (ind == -1) {
-            throw new RuntimeException("Нет переменной " + var);
+            throw new IllegalArgumentException("Нет переменной " + var);
         }
         ind += var.length() + 3;
         String newNum = "";
