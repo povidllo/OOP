@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.kuzminov","l":"GraphAdjList"},{"p":"ru.nsu.kuzminov","l":"GraphAdjMtx"},{"p":"ru.nsu.kuzminov","l":"GraphIncMtx"},{"p":"ru.nsu.kuzminov","l":"GraphInterface"}]
