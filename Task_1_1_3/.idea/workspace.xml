@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9dfde963-860d-42e8-b82d-00104a476cc5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/main/java/ru/nsu/kuzminov/HeapSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/test/java/ru/nsu/kuzminov/HeapSortTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/CardsList.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/ru/nsu/kuzminov/Blackjack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/ru/nsu/kuzminov/Card.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/ru/nsu/kuzminov/Deck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/ru/nsu/kuzminov/Hand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/test/java/ru/nsu/kuzminov/BlackjackTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/test/java/ru/nsu/kuzminov/CardTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/test/java/ru/nsu/kuzminov/DeckTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/test/java/ru/nsu/kuzminov/HandTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/kuzminov/Add.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/kuzminov/Div.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/kuzminov/Expression.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/kuzminov/Mul.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/kuzminov/Number.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/kuzminov/Variable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/kuzminov/AddTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/kuzminov/DivTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/kuzminov/MulTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/kuzminov/NumberTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/kuzminov/VariableTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2mmNVLwNXCUAYg176nc4qXbL359" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Tests in 'ru.nsu.kuzminov'.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Task__1__2__1",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Tests in 'ru.nsu.kuzminov'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.nsu.kuzminov.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Tests in 'ru.nsu.kuzminov'" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9dfde963-860d-42e8-b82d-00104a476cc5" name="Changes" comment="" />
+      <created>1727677813331</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727677813331</updated>
+    </task>
+    <servers />
+  </component>
+</project>
