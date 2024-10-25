@@ -170,8 +170,12 @@ public class GraphAdjMtx implements GraphInterface {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof GraphInterface)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof GraphInterface)) {
+            return false;
+        }
 
         return this.allEdges().equals(((GraphInterface) obj).allEdges());
     }

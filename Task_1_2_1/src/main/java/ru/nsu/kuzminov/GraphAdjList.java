@@ -147,8 +147,12 @@ public class GraphAdjList implements GraphInterface {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof GraphInterface)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof GraphInterface)) {
+            return false;
+        }
 
         return this.allEdges().equals(((GraphInterface) obj).allEdges());
     }
@@ -163,7 +167,7 @@ public class GraphAdjList implements GraphInterface {
         Map<Integer, Integer> status = new HashMap<>();
         List<Integer> topoList = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
-        boolean Cycle = false;
+        boolean hasCycle = false;
 
         for (Integer vertex : adjList.keySet()) {
             status.put(vertex, 0);
@@ -172,8 +176,8 @@ public class GraphAdjList implements GraphInterface {
 
         for (Integer vertex : adjList.keySet()) {
             if (status.get(vertex) == 0) {
-                Cycle = dfs(vertex, status, stack);
-                if (Cycle) {
+                hasCycle = dfs(vertex, status, stack);
+                if (hasCycle) {
                     return new ArrayList<>();
                 }
             }

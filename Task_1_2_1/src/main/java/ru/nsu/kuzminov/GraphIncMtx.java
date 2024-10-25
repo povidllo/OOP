@@ -5,11 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+
 /**
- * Реализация графа с помощью Матрицы инцидентности
+ * Реализация графа с помощью Матрицы инцидентности.
  */
 public class GraphIncMtx implements GraphInterface {
-    int[][] IncMtx;
+    int[][] incMtx;
     private int verCount;
     private int edgeCount;
 
@@ -24,7 +25,7 @@ public class GraphIncMtx implements GraphInterface {
         }
         this.verCount = newVerCount;
         this.edgeCount = 0;
-        this.IncMtx = new int[newVerCount + 1][0];
+        this.incMtx = new int[newVerCount + 1][0];
     }
 
     /**
@@ -37,9 +38,9 @@ public class GraphIncMtx implements GraphInterface {
         if (vertex > verCount) {
             int[][] newMatrix = new int[vertex + 1][edgeCount];
             for (int i = 0; i <= verCount; i++) {
-                System.arraycopy(IncMtx[i], 0, newMatrix[i], 0, edgeCount);
+                System.arraycopy(incMtx[i], 0, newMatrix[i], 0, edgeCount);
             }
-            IncMtx = newMatrix;
+            incMtx = newMatrix;
             verCount = vertex;
         }
     }
@@ -59,10 +60,10 @@ public class GraphIncMtx implements GraphInterface {
         int l = 0;
         for (int i = 0; i <= verCount; i++) {
             if (i != vertex) {
-                System.arraycopy(IncMtx[i], 0, newMatrix[l++], 0, edgeCount);
+                System.arraycopy(incMtx[i], 0, newMatrix[l++], 0, edgeCount);
             }
         }
-        IncMtx = newMatrix;
+        incMtx = newMatrix;
         verCount--;
     }
 
@@ -80,14 +81,14 @@ public class GraphIncMtx implements GraphInterface {
 
         int[][] newMatrix = new int[verCount + 1][edgeCount + 1];
         for (int i = 0; i <= verCount; i++) {
-            System.arraycopy(IncMtx[i], 0, newMatrix[i], 0, edgeCount);
+            System.arraycopy(incMtx[i], 0, newMatrix[i], 0, edgeCount);
         }
 
         // Для ориентированного графа добавляем ребро только от `from` к `to`
         newMatrix[from][edgeCount] = 1;
         newMatrix[to][edgeCount] = -1;
 
-        IncMtx = newMatrix;
+        incMtx = newMatrix;
         edgeCount++;
     }
 
@@ -104,15 +105,15 @@ public class GraphIncMtx implements GraphInterface {
         }
 
         for (int i = 0; i < edgeCount; i++) {
-            if (IncMtx[from][i] == 1 && IncMtx[to][i] == -1) {
+            if (incMtx[from][i] == 1 && incMtx[to][i] == -1) {
                 int[][] newMatrix = new int[verCount + 1][edgeCount - 1];
                 for (int j = 0; j <= verCount; j++) {
-                    System.arraycopy(IncMtx[j], 0, newMatrix[j], 0, i);
+                    System.arraycopy(incMtx[j], 0, newMatrix[j], 0, i);
                     if (i < edgeCount - 1) {
-                        System.arraycopy(IncMtx[j], i + 1, newMatrix[j], i, edgeCount - i - 1);
+                        System.arraycopy(incMtx[j], i + 1, newMatrix[j], i, edgeCount - i - 1);
                     }
                 }
-                IncMtx = newMatrix;
+                incMtx = newMatrix;
                 edgeCount--;
                 return;
             }
@@ -132,9 +133,9 @@ public class GraphIncMtx implements GraphInterface {
             throw new IllegalArgumentException("Вершина не существует.");
         }
         for (int i = 0; i < edgeCount; i++) {
-            if (IncMtx[vertex][i] == 1) {
+            if (incMtx[vertex][i] == 1) {
                 for (int j = 0; j <= verCount; j++) {
-                    if (IncMtx[j][i] == -1) {
+                    if (incMtx[j][i] == -1) {
                         neighbors.add(j);
                     }
                 }
@@ -169,8 +170,12 @@ public class GraphIncMtx implements GraphInterface {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof GraphInterface)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof GraphInterface)) {
+            return false;
+        }
 
         return this.allEdges().equals(((GraphInterface) obj).allEdges());
     }
@@ -185,7 +190,7 @@ public class GraphIncMtx implements GraphInterface {
         Map<Integer, Integer> status = new HashMap<>();
         List<Integer> topoList = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
-        boolean Cycle = false;
+        boolean hasCycle = false;
 
         for (int i = 1; i <= verCount; i++) {
             status.put(i, 0);
@@ -193,8 +198,8 @@ public class GraphIncMtx implements GraphInterface {
 
         for (int i = 1; i <= verCount; i++) {
             if (status.get(i) == 0) {
-                Cycle = dfs(i, status, stack);
-                if (Cycle) {
+                hasCycle = dfs(i, status, stack);
+                if (hasCycle) {
                     return new ArrayList<>();
                 }
             }
@@ -219,9 +224,9 @@ public class GraphIncMtx implements GraphInterface {
         status.put(vertex, 1);
 
         for (int i = 0; i < edgeCount; i++) {
-            if (IncMtx[vertex][i] == 1) {
+            if (incMtx[vertex][i] == 1) {
                 for (int j = 1; j <= verCount; j++) {
-                    if (IncMtx[j][i] == -1) {
+                    if (incMtx[j][i] == -1) {
                         if (status.get(j) == 0) {
                             if (dfs(j, status, stack)) {
                                 return true;

@@ -20,7 +20,7 @@ class GraphIncMtxTest {
     @Test
     void addVertex1() {
         mtx.addVertex(5);
-        assertEquals(6, mtx.IncMtx.length);
+        assertEquals(6, mtx.incMtx.length);
     }
 
     //проверка скопировался ли массив
