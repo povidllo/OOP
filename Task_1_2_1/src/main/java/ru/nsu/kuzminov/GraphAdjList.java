@@ -22,11 +22,11 @@ public class GraphAdjList implements GraphInterface {
     /**
      * Добавляет новую вершину.
      *
-     * @param vertex - новая вершина.
+     * @param vertexIndex - новая вершина.
      */
     @Override
-    public void addVertex(int vertex) {
-        adjList.putIfAbsent(vertex, new ArrayList<>());
+    public void addVertex(int vertexIndex) {
+        adjList.putIfAbsent(vertexIndex, new ArrayList<>());
     }
 
     /**
