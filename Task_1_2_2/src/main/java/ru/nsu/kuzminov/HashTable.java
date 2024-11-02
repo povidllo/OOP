@@ -2,6 +2,7 @@ package ru.nsu.kuzminov;
 
 import java.util.*;
 
+
 /**
  * Реализация хэш таблицы.
  *
@@ -40,9 +41,9 @@ public class HashTable<K, V> implements Iterable<OneNode<K, V>> {
      * Решает проблемы с коллизией.
      */
     private void resolveLoadFactor() {
-        ArrayList<OneNode<K, V>> oldOurTable = ourTable;
         ourTable = new ArrayList<>(tableSize * 2);
         tableSize = tableSize * 2;
+        ArrayList<OneNode<K, V>> oldOurTable = ourTable;
         for (int i = 0; i < tableSize; i++) {
             ourTable.add(null);
         }
@@ -196,6 +197,8 @@ public class HashTable<K, V> implements Iterable<OneNode<K, V>> {
     }
 
     /**
+     * Создает итератор.
+     *
      * @return итератор.
      */
     @Override

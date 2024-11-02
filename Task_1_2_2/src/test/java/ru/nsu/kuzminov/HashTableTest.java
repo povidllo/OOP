@@ -24,11 +24,11 @@ class HashTableTest {
     @Test
     void putOneKeyTwoValue() {
         table.put(1, "one");
-        String prev = table.put(1, "one one");
 
         assertTrue(table.containsKey(1));
         assertTrue(table.containsValue("one one"));
         assertFalse(table.containsValue("one"));
+        String prev = table.put(1, "one one");
         assertEquals(prev, "one");
 
     }
@@ -202,9 +202,9 @@ class HashTableTest {
         table.put(1, "one");
         table.put(11, "two");
         table.put(2, "three");
-        assertEquals(table.toString(), "11 = two\n" +
-                "1 = one\n" +
-                "2 = three");
+        assertEquals(table.toString(), "11 = two\n"
+                + "1 = one\n"
+                + "2 = three");
     }
 
     @Test
