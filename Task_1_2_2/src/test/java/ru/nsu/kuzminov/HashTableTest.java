@@ -26,10 +26,11 @@ class HashTableTest {
         table.put(1, "one");
 
         assertTrue(table.containsKey(1));
-        assertTrue(table.containsValue("one one"));
-        assertFalse(table.containsValue("one"));
         String prev = table.put(1, "one one");
+        assertTrue(table.containsValue("one one"));
         assertEquals(prev, "one");
+        assertFalse(table.containsValue("one"));
+
 
     }
 

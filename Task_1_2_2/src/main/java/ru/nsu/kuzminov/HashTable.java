@@ -41,9 +41,9 @@ public class HashTable<K, V> implements Iterable<OneNode<K, V>> {
      * Решает проблемы с коллизией.
      */
     private void resolveLoadFactor() {
-        ourTable = new ArrayList<>(tableSize * 2);
         tableSize = tableSize * 2;
         ArrayList<OneNode<K, V>> oldOurTable = ourTable;
+        ourTable = new ArrayList<>(tableSize * 2);
         for (int i = 0; i < tableSize; i++) {
             ourTable.add(null);
         }
