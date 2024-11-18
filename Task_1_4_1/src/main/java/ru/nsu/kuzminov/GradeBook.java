@@ -68,7 +68,8 @@ public class GradeBook {
      * @return true если добавилось, иначе false.
      */
     public boolean addGrade(int semester, String subj, String type, int grade) {
-        if (semester > 8 || semester < 1 || grade < 2 || grade > 5 || !associationIdType.containsKey(type)) {
+        if (semester > 8 || semester < 1 || grade < 2 || grade > 5
+                || !associationIdType.containsKey(type)) {
             throw new IllegalArgumentException("Не правильные входные данные");
         }
         semester -= 1;
@@ -121,7 +122,8 @@ public class GradeBook {
     }
 
     /**
-     * Оценивает возможность получить красный диплом(75% оценок за 8 семестр 5, ВКР = 5, нет 3 по диф зачету и экзам).
+     * Оценивает возможность получить красный диплом(75% оценок за 8 семестр 5,
+     *                              ВКР = 5, нет 3 по диф зачету и экзам).
      *
      * @return true если может, иначе false.
      */
