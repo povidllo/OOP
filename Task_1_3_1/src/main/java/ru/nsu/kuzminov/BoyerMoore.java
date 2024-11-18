@@ -1,9 +1,6 @@
 package ru.nsu.kuzminov;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,8 +29,9 @@ public class BoyerMoore {
 
         Map<Character, Integer> shiftTable = SubstringCharTable(substring);
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName),
-                StandardCharsets.UTF_8))) {
+        try (InputStreamReader reader = new InputStreamReader
+                (new BufferedInputStream
+                        (new FileInputStream(fileName)), StandardCharsets.UTF_8)) {
             StringBuilder buffer = new StringBuilder();
             int globalIndex = 0;
             int bytesRead;
