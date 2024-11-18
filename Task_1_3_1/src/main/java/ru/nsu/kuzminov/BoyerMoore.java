@@ -27,7 +27,7 @@ public class BoyerMoore {
             return result;
         }
 
-        Map<Character, Integer> shiftTable = SubstringCharTable(substring);
+        Map<Character, Integer> shiftTable = builderSubstringCharTable(substring);
 
         try (InputStreamReader reader = new InputStreamReader
                 (new BufferedInputStream
@@ -49,7 +49,8 @@ public class BoyerMoore {
                         globalIndex += matchIndex + 1;
                     } else {
                         globalIndex += buffer.length() - substringLen + 1;
-                        buffer = new StringBuilder(buffer.substring(buffer.length() - substringLen + 1));
+                        buffer = new StringBuilder(buffer.substring(
+                                buffer.length() - substringLen + 1));
                         break;
                     }
                 }
@@ -65,7 +66,7 @@ public class BoyerMoore {
      * @param substring - искомая подстрока.
      * @return хэш таблицу со здвигами.
      */
-    private static Map<Character, Integer> SubstringCharTable(String substring) {
+    private static Map<Character, Integer> builderSubstringCharTable(String substring) {
         Map<Character, Integer> table = new HashMap<>();
         int length = substring.length();
 
@@ -83,7 +84,8 @@ public class BoyerMoore {
      * @param shiftTable - таблица смещений.
      * @return возвращает индекс, если нашел, иначе -1.
      */
-    private static int searchInBuffer(StringBuilder buffer, String substring, Map<Character, Integer> shiftTable) {
+    private static int searchInBuffer(StringBuilder buffer, String substring,
+                                      Map<Character, Integer> shiftTable) {
         int bufferLength = buffer.length();
         int patternLength = substring.length();
 
