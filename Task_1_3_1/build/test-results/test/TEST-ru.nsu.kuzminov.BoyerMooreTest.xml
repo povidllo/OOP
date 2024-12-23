@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.kuzminov.BoyerMooreTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-11-18T06:42:34" hostname="fedora" time="0.136">
+  <properties/>
+  <testcase name="testWithSubstring()" classname="ru.nsu.kuzminov.BoyerMooreTest" time="0.04"/>
+  <testcase name="testEmptyFile()" classname="ru.nsu.kuzminov.BoyerMooreTest" time="0.003"/>
+  <testcase name="testEmptySubstring()" classname="ru.nsu.kuzminov.BoyerMooreTest" time="0.003"/>
+  <testcase name="testLargeFile()" classname="ru.nsu.kuzminov.BoyerMooreTest" time="0.078"/>
+  <testcase name="testWithoutSubstring()" classname="ru.nsu.kuzminov.BoyerMooreTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
