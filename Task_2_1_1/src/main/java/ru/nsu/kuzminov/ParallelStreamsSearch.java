@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Класс реализующий последовательный поиск.
  */
 public class ParallelStreamsSearch {
+
     /**
      * Метод просматривающий является ли число простым или нет.
      *

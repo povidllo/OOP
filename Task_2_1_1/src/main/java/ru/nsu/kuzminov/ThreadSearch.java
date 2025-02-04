@@ -35,9 +35,13 @@ class OneThread implements Runnable {
      * @return true если оно не простое, иначе false.
      */
     private boolean notPrime(int num) {
-        if (num < 2) return true;
+        if (num < 2) {
+            return true;
+        }
         for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) return true;
+            if (num % i == 0) {
+                return true;
+            }
         }
         return false;
     }
@@ -65,23 +69,23 @@ public class ThreadSearch {
      * Основной метод поиска.
      *
      * @param numbers     - лист с числами
-     * @param num_threads - число потоков
+     * @param numThreads - число потоков
      * @return true если в numbers есть не простое число, иначе false.
      */
-    public static boolean search(ArrayList<Integer> numbers, int num_threads) {
+    public static boolean search(ArrayList<Integer> numbers, int numThreads) {
         int len = numbers.size();
-        if (num_threads > len) {
-            num_threads = len;
+        if (numThreads > len) {
+            numThreads = len;
         }
 
-        Thread[] threads = new Thread[num_threads];
-        int count = len / num_threads;
+        Thread[] threads = new Thread[numThreads];
+        int count = len / numThreads;
         AtomicBoolean res = new AtomicBoolean(false);
 
-        for (int i = 0; i < num_threads; i++) {
+        for (int i = 0; i < numThreads; i++) {
             int left = i * count;
             int right;
-            if(i == num_threads - 1) {
+            if (i == numThreads - 1) {
                 right = len;
             } else {
                 right = left + count;
