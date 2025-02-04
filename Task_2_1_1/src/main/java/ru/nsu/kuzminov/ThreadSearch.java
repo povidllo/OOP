@@ -3,6 +3,9 @@ package ru.nsu.kuzminov;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Класс для потока.
+ */
 class OneThread implements Runnable {
 
     private ArrayList<Integer> numbers;
@@ -10,6 +13,14 @@ class OneThread implements Runnable {
     private int right;
     private AtomicBoolean res;
 
+    /**
+     * Конструктор.
+     *
+     * @param numbers - лист с числами.
+     * @param left    - левая граница.
+     * @param right   - правая граница.
+     * @param res     - результат.
+     */
     public OneThread(ArrayList<Integer> numbers, int left, int right, AtomicBoolean res) {
         this.numbers = numbers;
         this.left = left;
@@ -17,6 +28,12 @@ class OneThread implements Runnable {
         this.res = res;
     }
 
+    /**
+     * Метод просматривающий является ли число простым или нет.
+     *
+     * @param num - просматриваемое число.
+     * @return true если оно не простое, иначе false.
+     */
     private boolean notPrime(int num) {
         if (num < 2) return true;
         for (int i = 2; i <= Math.sqrt(num); i++) {
@@ -25,6 +42,9 @@ class OneThread implements Runnable {
         return false;
     }
 
+    /**
+     * Запуск.
+     */
     @Override
     public void run() {
         for (int i = left; i < right; i++) {
@@ -37,8 +57,17 @@ class OneThread implements Runnable {
     }
 }
 
+/**
+ * Класс реализующий последовательный поиск.
+ */
 public class ThreadSearch {
-
+    /**
+     * Основной метод поиска.
+     *
+     * @param numbers     - лист с числами
+     * @param num_threads - число потоков
+     * @return true если в numbers есть не простое число, иначе false.
+     */
     public static boolean search(ArrayList<Integer> numbers, int num_threads) {
         int len = numbers.size();
         if (num_threads > len) {
