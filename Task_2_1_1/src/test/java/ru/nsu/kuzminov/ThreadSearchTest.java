@@ -40,4 +40,14 @@ class ThreadSearchTest {
         assertFalse(ThreadSearch.search(array2, 5));
     }
 
+    @Test
+    void search5() {
+        assertFalse(ThreadSearch.search(array2, 32));
+    }
+
+    @Test
+    void search6() {
+        assertFalse(ThreadSearch.search(array2, 64));
+    }
+
 }

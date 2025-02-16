@@ -29,31 +29,13 @@ class OneThread implements Runnable {
     }
 
     /**
-     * Метод просматривающий является ли число простым или нет.
-     *
-     * @param num - просматриваемое число.
-     * @return true если оно не простое, иначе false.
-     */
-    private boolean notPrime(int num) {
-        if (num < 2) {
-            return true;
-        }
-        for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Запуск.
      */
     @Override
     public void run() {
         for (int i = left; i < right; i++) {
             if (res.get()) return;
-            if (notPrime(numbers.get(i))) {
+            if (notPrimeClass.notPrime(numbers.get(i))) {
                 res.set(true);
                 return;
             }
