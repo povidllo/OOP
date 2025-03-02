@@ -16,7 +16,7 @@ public class ConsistenceSearch {
      */
     public static boolean search(ArrayList<Integer> numbers) {
         for (int num : numbers) {
-            if (notPrimeClass.notPrime(num)) {
+            if (NotPrime.notPrime(num)) {
                 return true;
             }
         }

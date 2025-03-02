@@ -35,7 +35,7 @@ class OneThread implements Runnable {
     public void run() {
         for (int i = left; i < right; i++) {
             if (res.get()) return;
-            if (notPrimeClass.notPrime(numbers.get(i))) {
+            if (NotPrime.notPrime(numbers.get(i))) {
                 res.set(true);
                 return;
             }

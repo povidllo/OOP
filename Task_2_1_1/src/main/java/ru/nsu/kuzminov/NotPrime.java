@@ -1,6 +1,6 @@
 package ru.nsu.kuzminov;
 
-public class notPrimeClass {
+public class NotPrime {
     /**
      * Метод просматривающий является ли число простым или нет.
      *
