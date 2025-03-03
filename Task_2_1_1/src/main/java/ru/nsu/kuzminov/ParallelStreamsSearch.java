@@ -14,6 +14,6 @@ public class ParallelStreamsSearch {
      * @return true если в numbers есть не простые числа, иначе false.
      */
     public static boolean search(ArrayList<Integer> numbers) {
-        return numbers.parallelStream().anyMatch(NotPrime::notPrime);
+        return numbers.parallelStream().anyMatch(PrimeUtil::notPrime);
     }
 }

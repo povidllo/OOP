@@ -8,10 +8,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 class OneThread implements Runnable {
 
-    private ArrayList<Integer> numbers;
-    private int left;
-    private int right;
-    private AtomicBoolean res;
+    private final ArrayList<Integer> numbers;
+    private final int left;
+    private final int right;
+    private final AtomicBoolean hasComposite;
 
     /**
      * Конструктор.
@@ -19,13 +19,13 @@ class OneThread implements Runnable {
      * @param numbers - лист с числами.
      * @param left    - левая граница.
      * @param right   - правая граница.
-     * @param res     - результат.
+     * @param hasComposite     - результат.
      */
-    public OneThread(ArrayList<Integer> numbers, int left, int right, AtomicBoolean res) {
+    public OneThread(ArrayList<Integer> numbers, int left, int right, AtomicBoolean hasComposite) {
         this.numbers = numbers;
         this.left = left;
         this.right = right;
-        this.res = res;
+        this.hasComposite = hasComposite;
     }
 
     /**
@@ -34,9 +34,9 @@ class OneThread implements Runnable {
     @Override
     public void run() {
         for (int i = left; i < right; i++) {
-            if (res.get()) return;
-            if (NotPrime.notPrime(numbers.get(i))) {
-                res.set(true);
+            if (hasComposite.get()) return;
+            if (PrimeUtil.notPrime(numbers.get(i))) {
+                hasComposite.set(true);
                 return;
             }
         }

@@ -3,7 +3,7 @@ package ru.nsu.kuzminov;
 /**
  * Класс который проверяет, является ли число простым или нет.
  */
-public class NotPrime {
+public class PrimeUtil {
     /**
      * Метод просматривающий является ли число простым или нет.
      *
