@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.kuzminov","l":"ConsistenceSearch"},{"p":"ru.nsu.kuzminov","l":"NotPrime"},{"p":"ru.nsu.kuzminov","l":"ParallelStreamsSearch"},{"p":"ru.nsu.kuzminov","l":"ThreadSearch"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.kuzminov","l":"ConsistenceSearch"},{"p":"ru.nsu.kuzminov","l":"ParallelStreamsSearch"},{"p":"ru.nsu.kuzminov","l":"PrimeUtil"},{"p":"ru.nsu.kuzminov","l":"ThreadSearch"}];updateSearchResults();
