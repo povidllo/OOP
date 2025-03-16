@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.kuzminov","l":"Baker"},{"p":"ru.nsu.kuzminov","l":"Courier"},{"p":"ru.nsu.kuzminov","l":"Main"},{"p":"ru.nsu.kuzminov","l":"Order"},{"p":"ru.nsu.kuzminov","l":"QueueOrder"}];updateSearchResults();
