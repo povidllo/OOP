@@ -21,10 +21,10 @@ public class Order {
     /**
      * Метод задающий новый статус заказу.
      *
-     * @param new_status Новый статус для заказа.
+     * @param newStatus Новый статус для заказа.
      */
-    public synchronized void setNewStatus(String new_status) {
-        this.status = new_status;
+    public synchronized void setNewStatus(String newStatus) {
+        this.status = newStatus;
     }
 
     /**

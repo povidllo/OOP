@@ -8,23 +8,23 @@ public class Baker implements Runnable {
 
     final int id;
     final int speed;
-    QueueOrder<Order> order_queue;
-    QueueOrder<Order> delivery_order_queue;
+    QueueOrder<Order> orderQueue;
+    QueueOrder<Order> deliveryOrderQueue;
 
     /**
      * Конструктор класса Baker.
      *
      * @param id                   Уникальный идентификатор пекаря.
      * @param speed                Скорость приготовления заказа (в секундах).
-     * @param order_queue          Очередь заказов для приготовления.
-     * @param delivery_order_queue Очередь заказов для доставки.
+     * @param orderQueue          Очередь заказов для приготовления.
+     * @param deliveryOrderQueue Очередь заказов для доставки.
      */
-    public Baker(int id, int speed, QueueOrder<Order> order_queue,
-                 QueueOrder<Order> delivery_order_queue) {
+    public Baker(int id, int speed, QueueOrder<Order> orderQueue,
+                 QueueOrder<Order> deliveryOrderQueue) {
         this.id = id;
         this.speed = speed;
-        this.order_queue = order_queue;
-        this.delivery_order_queue = delivery_order_queue;
+        this.orderQueue = orderQueue;
+        this.deliveryOrderQueue = deliveryOrderQueue;
     }
 
     /**
@@ -33,20 +33,20 @@ public class Baker implements Runnable {
      */
     @Override
     public void run() {
-        Order cur_order;
+        Order curOrder;
         while (true) {
             try {
-                cur_order = order_queue.get();
-                if (cur_order == null) {
+                curOrder = orderQueue.get();
+                if (curOrder == null) {
                     System.out.println("Пекарь номер " + this.id + " ушел домой");
                     return;
                 }
                 System.out.println("Пекарь номер " + this.id + " готовит заказ с номером "
-                        + cur_order.getId());
+                        + curOrder.getId());
                 Thread.sleep(speed * 1000L);
-                delivery_order_queue.insert(cur_order);
+                deliveryOrderQueue.insert(curOrder);
                 System.out.println("Пекарь номер " + this.id + " поместил на слад заказ "
-                        + cur_order.getId());
+                        + curOrder.getId());
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

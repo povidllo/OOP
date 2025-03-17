@@ -1,11 +1,10 @@
 package ru.nsu.kuzminov;
 
+import java.io.FileReader;
+import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
-import java.io.FileReader;
-import java.util.ArrayList;
 
 /**
  * Основной класс приложения.
@@ -39,18 +38,18 @@ public class Main {
             timeBetweenOrders = ((Long) jo.get("timeBetweenOrders")).intValue();
             timeAfterAllOrders = ((Long) jo.get("timeAfterAllOrders")).intValue();
 
-            JSONArray b_speed = (JSONArray) jo.get("bakerSpeed");
-            for (Object speed : b_speed) {
+            JSONArray bSpeed = (JSONArray) jo.get("bakerSpeed");
+            for (Object speed : bSpeed) {
                 bakerSpeed.add(((Long) speed).intValue());
             }
 
-            JSONArray c_cap = (JSONArray) jo.get("courier_cap");
-            for (Object cap : c_cap) {
+            JSONArray cCap = (JSONArray) jo.get("courier_cap");
+            for (Object cap : cCap) {
                 courierCap.add(((Long) cap).intValue());
             }
 
-            JSONArray c_speed = (JSONArray) jo.get("courierSpeed");
-            for (Object speed : c_speed) {
+            JSONArray cSpeed = (JSONArray) jo.get("courierSpeed");
+            for (Object speed : cSpeed) {
                 courierSpeed.add(((Long) speed).intValue());
             }
 
@@ -70,7 +69,8 @@ public class Main {
         }
 
         for (int i = 0; i < courierCount; i++) {
-            Courier oneCourier = new Courier(i, courierCap.get(i), courierSpeed.get(i), deliveryOrderQueue);
+            Courier oneCourier = new Courier(i, courierCap.get(i),
+                    courierSpeed.get(i), deliveryOrderQueue);
             Thread oneCourierThread = new Thread(oneCourier);
             courierThreads.add(oneCourierThread);
             oneCourierThread.start();
