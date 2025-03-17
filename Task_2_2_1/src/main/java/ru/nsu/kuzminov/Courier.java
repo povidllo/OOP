@@ -10,21 +10,21 @@ public class Courier implements Runnable {
     final int id;
     final int cap;
     final int speed;
-    QueueOrder<Order> order_queue;
+    QueueOrder<Order> orderQueue;
 
     /**
      * Конструктор класса Courier.
      *
-     * @param id                   Уникальный идентификатор курьера.
-     * @param cap                  Вместимость курьера (максимальное количество заказов за одну доставку).
-     * @param speed                Скорость доставки (в секундах).
-     * @param delivery_order_queue Очередь заказов для доставки.
+     * @param id  Уникальный идентификатор курьера.
+     * @param cap  Вместимость курьера (максимальное количество заказов за одну доставку).
+     * @param speed Скорость доставки (в секундах).
+     * @param deliveryOrderQueue Очередь заказов для доставки.
      */
-    public Courier(int id, int cap, int speed, QueueOrder<Order> delivery_order_queue) {
+    public Courier(int id, int cap, int speed, QueueOrder<Order> deliveryOrderQueue) {
         this.id = id;
         this.cap = cap;
         this.speed = speed;
-        this.order_queue = delivery_order_queue;
+        this.orderQueue = deliveryOrderQueue;
     }
 
     /**
@@ -36,9 +36,9 @@ public class Courier implements Runnable {
         try {
             int size = 0;
             ArrayList<Integer> orders = new ArrayList<>();
-            while (!order_queue.isClosed() || (order_queue.isClosed() && order_queue.getSize() != 0) ||
-                    (order_queue.isClosed() && size != 0)) {
-                Order order = order_queue.see();
+            while (!orderQueue.isClosed() || (orderQueue.isClosed() && orderQueue.getSize() != 0)
+                    || (orderQueue.isClosed() && size != 0)) {
+                Order order = orderQueue.see();
                 if (size == 0 && order == null) {
                     continue;
                 } else if ((order == null && size > 0) || size == this.cap) {
@@ -49,7 +49,7 @@ public class Courier implements Runnable {
                     orders.clear();
                     continue;
                 }
-                order = order_queue.get();
+                order = orderQueue.get();
                 orders.add(order.getId());
                 size++;
             }

@@ -41,10 +41,12 @@ public class Baker implements Runnable {
                     System.out.println("Пекарь номер " + this.id + " ушел домой");
                     return;
                 }
-                System.out.println("Пекарь номер " + this.id + " готовит заказ с номером " + cur_order.getId());
+                System.out.println("Пекарь номер " + this.id + " готовит заказ с номером "
+                        + cur_order.getId());
                 Thread.sleep(speed * 1000L);
                 delivery_order_queue.insert(cur_order);
-                System.out.println("Пекарь номер " + this.id + " поместил на слад заказ " + cur_order.getId());
+                System.out.println("Пекарь номер " + this.id + " поместил на слад заказ "
+                        + cur_order.getId());
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
