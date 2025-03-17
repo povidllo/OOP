@@ -1,21 +1,21 @@
 {
-   "order_count":10,
-   "baker_count":4,
-   "courier_count":2,
-   "warehouse_cap":2,
-   "time_between_orders":1,
-   "time_after_all_orders":5,
-   "baker_speed":[
+   "orderCount":10,
+   "bakerCount":4,
+   "courierCount":2,
+   "warehouseCap":2,
+   "timeBetweenOrders":1,
+   "timeAfterAllOrders":5,
+   "bakerSpeed":[
       3,
       1,
       1,
       2
    ],
-   "courier_cap":[
+   "courierCap":[
       2,
       5
    ],
-   "courier_speed":[
+   "courierSpeed":[
       3,
       7
    ]

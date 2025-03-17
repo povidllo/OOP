@@ -43,7 +43,7 @@ public class Main {
                 bakerSpeed.add(((Long) speed).intValue());
             }
 
-            JSONArray cCap = (JSONArray) jo.get("courier_cap");
+            JSONArray cCap = (JSONArray) jo.get("courierCap");
             for (Object cap : cCap) {
                 courierCap.add(((Long) cap).intValue());
             }
