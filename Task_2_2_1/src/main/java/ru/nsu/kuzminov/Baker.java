@@ -6,10 +6,10 @@ package ru.nsu.kuzminov;
  */
 public class Baker implements Runnable {
 
-    final int id;
-    final int speed;
-    QueueOrder<Order> orderQueue;
-    QueueOrder<Order> deliveryOrderQueue;
+    private final int id;
+    private final int speed;
+    private final QueueOrder<Order> orderQueue;
+    private final QueueOrder<Order> deliveryOrderQueue;
 
     /**
      * Конструктор класса Baker.
@@ -33,23 +33,23 @@ public class Baker implements Runnable {
      */
     @Override
     public void run() {
-        Order curOrder;
-        while (true) {
-            try {
-                curOrder = orderQueue.get();
-                if (curOrder == null) {
-                    System.out.println("Пекарь номер " + this.id + " ушел домой");
-                    return;
-                }
-                System.out.println("Пекарь номер " + this.id + " готовит заказ с номером "
-                        + curOrder.getId());
-                Thread.sleep(speed * 1000L);
-                deliveryOrderQueue.insert(curOrder);
-                System.out.println("Пекарь номер " + this.id + " поместил на слад заказ "
-                        + curOrder.getId());
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+        try {
+            Order curOrder;
+            while (true) {
+                    curOrder = orderQueue.get();
+                    if (curOrder == null) {
+                        System.out.println("Пекарь номер " + this.id + " ушел домой");
+                        return;
+                    }
+                    System.out.println("Пекарь номер " + this.id + " готовит заказ с номером "
+                            + curOrder.getId());
+                    Thread.sleep(speed * 1000L);
+                    deliveryOrderQueue.insert(curOrder);
+                    System.out.println("Пекарь номер " + this.id + " поместил на слад заказ "
+                            + curOrder.getId());
             }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
