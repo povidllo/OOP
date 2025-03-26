@@ -1,4 +1,4 @@
 package ru.nsu.kuzminov;
 
-public class Courier {
+public class Warehouse {
 }
