@@ -1,16 +1,17 @@
 package ru.nsu.kuzminov;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Класс, представляющий курьера.
  * Курьер забирает готовые заказы из очереди и доставляет их.
  */
 public class Courier implements Runnable {
-    final int id;
-    final int cap;
-    final int speed;
-    QueueOrder<Order> orderQueue;
+    private final int id;
+    private final int cap;
+    private final int speed;
+    private final QueueOrder<Order> orderQueue;
 
     /**
      * Конструктор класса Courier.
@@ -35,7 +36,7 @@ public class Courier implements Runnable {
     public void run() {
         try {
             int size = 0;
-            ArrayList<Integer> orders = new ArrayList<>();
+            List<Integer> orders = new ArrayList<>();
             while (!orderQueue.isClosed() || (orderQueue.isClosed() && orderQueue.getSize() != 0)
                     || (orderQueue.isClosed() && size != 0)) {
                 Order order = orderQueue.see();
