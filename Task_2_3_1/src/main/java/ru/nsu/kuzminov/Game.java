@@ -1,10 +1,12 @@
 package ru.nsu.kuzminov;
 
+import static ru.nsu.kuzminov.Cell.CellType.GRID;
+import static ru.nsu.kuzminov.Cell.CellType.SNAKE_BODY;
+import static ru.nsu.kuzminov.Cell.CellType.APPLE;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Random;
-
-import static ru.nsu.kuzminov.Cell.CellType.*;
 
 /**
  * Класс предоставляющий игру.
@@ -104,17 +106,17 @@ public class Game {
      */
     public void setNextDirection(Direction dir) {
         if (nextDirection.isEmpty()) {
-            if ((direction == Direction.UP && dir == Direction.DOWN) ||
-                    (direction == Direction.DOWN && dir == Direction.UP) ||
-                    (direction == Direction.LEFT && dir == Direction.RIGHT) ||
-                    (direction == Direction.RIGHT && dir == Direction.LEFT)) {
+            if ((direction == Direction.UP && dir == Direction.DOWN)
+                    || (direction == Direction.DOWN && dir == Direction.UP)
+                    || (direction == Direction.LEFT && dir == Direction.RIGHT)
+                    || (direction == Direction.RIGHT && dir == Direction.LEFT)) {
                 return;
             }
         } else {
-            if ((nextDirection.getFirst() == Direction.UP && dir == Direction.DOWN) ||
-                    (nextDirection.getFirst() == Direction.DOWN && dir == Direction.UP) ||
-                    (nextDirection.getFirst() == Direction.LEFT && dir == Direction.RIGHT) ||
-                    (nextDirection.getFirst() == Direction.RIGHT && dir == Direction.LEFT)) {
+            if ((nextDirection.getFirst() == Direction.UP && dir == Direction.DOWN)
+                    || (nextDirection.getFirst() == Direction.DOWN && dir == Direction.UP)
+                    || (nextDirection.getFirst() == Direction.LEFT && dir == Direction.RIGHT)
+                    || (nextDirection.getFirst() == Direction.RIGHT && dir == Direction.LEFT)) {
                 return;
             }
         }
@@ -159,8 +161,12 @@ public class Game {
             case DOWN -> newY++;
             case LEFT -> newX--;
             case RIGHT -> newX++;
+            default -> {
+                break;
+            }
         }
-        if (newX == -1 || newX == width || newY == -1 || newY == height || grid[newX][newY].getType() == SNAKE_BODY) {
+        if (newX == -1 || newX == width || newY == -1 || newY == height
+                || grid[newX][newY].getType() == SNAKE_BODY) {
             setStatus(GameStatus.LOOSE);
             return;
         }

@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 public class GridController {
 
     @FXML
-    private Canvas Grid;
+    private Canvas grid;
     private Game game;
     private int cellSize;
 
@@ -22,7 +22,7 @@ public class GridController {
      * @return возвращает размер поля.
      */
     public double getGridSize() {
-        return Grid.getHeight();
+        return grid.getHeight();
     }
 
     /**
@@ -82,6 +82,9 @@ public class GridController {
                     case SNAKE_BODY -> drawGridSegment(i, j, Color.GREEN);
                     case GRID -> drawGridSegment(i, j, Color.WHITE);
                     case APPLE -> drawGridSegment(i, j, Color.RED);
+                    default -> {
+                        break;
+                    }
                 }
             }
         }
@@ -92,7 +95,7 @@ public class GridController {
      * Метод, отрисовывающий поле.
      */
     private void drawGrid() {
-        GraphicsContext gc = Grid.getGraphicsContext2D();
+        GraphicsContext gc = grid.getGraphicsContext2D();
         gc.setStroke(Color.LIGHTGRAY);
         int height = (int) (game.getHeight() * cellSize);
         int width = (int) (game.getWidth() * cellSize);
@@ -109,7 +112,7 @@ public class GridController {
      * Метод, отрисовывающий один сегмент поля.
      */
     private void drawGridSegment(int x, int y, Color color) {
-        GraphicsContext gc = Grid.getGraphicsContext2D();
+        GraphicsContext gc = grid.getGraphicsContext2D();
         gc.setFill(color);
         gc.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
     }

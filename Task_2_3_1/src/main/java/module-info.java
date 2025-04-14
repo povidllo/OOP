@@ -1,4 +1,4 @@
-module ru.nsu.kuzminov.task_2_3_1 {
+module ru.nsu.kuzminov {
     requires javafx.controls;
     requires javafx.fxml;
 
