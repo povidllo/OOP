@@ -1,8 +1,8 @@
 plugins {
     id 'java'
+    id 'idea'
     id 'jacoco'
     id 'application'
-    id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
 }
@@ -18,13 +18,19 @@ ext {
     junitVersion = '5.10.2'
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
 application {
-    mainModule = 'ru.nsu.kuzminov.task_2_3_1'
-    mainClass = 'ru.nsu.kuzminov.task_2_3_1.HelloApplication'
+    mainModule = 'ru.nsu.kuzminov'
+    mainClass = 'ru.nsu.kuzminov.SnakeApplication'
 }
 
 javafx {
@@ -41,6 +47,13 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
 }
 
 jlink {
