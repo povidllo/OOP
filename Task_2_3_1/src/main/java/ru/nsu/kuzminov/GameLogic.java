@@ -28,25 +28,26 @@ public class GameLogic implements EventHandler<KeyEvent> {
      */
     @Override
     public void handle(KeyEvent event) {
-        if (game.getStatus() != GameStatus.IN_GAME) {
-            return;
-        }
         switch (event.getCode()) {
             case W -> {
                 game.setNextDirection(Direction.UP);
-                System.out.println("W");
+//                System.out.println("W");
             }
             case S -> {
                 game.setNextDirection(Direction.DOWN);
-                System.out.println("S");
+//                System.out.println("S");
             }
             case A -> {
                 game.setNextDirection(Direction.LEFT);
-                System.out.println("A");
+//                System.out.println("A");
             }
             case D -> {
                 game.setNextDirection(Direction.RIGHT);
-                System.out.println("D");
+//                System.out.println("D");
+            }
+            case ENTER -> {
+                game.reset();
+                gridController.updateGrid();
             }
         }
     }

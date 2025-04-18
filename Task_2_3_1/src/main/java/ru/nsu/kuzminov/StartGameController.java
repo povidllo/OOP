@@ -31,14 +31,14 @@ public class StartGameController {
         int width = Integer.parseInt(widthArea.getText());
         int height = Integer.parseInt(heightArea.getText());
 
-        if (width < 10 || height < 10 || width > 40 || height > 40) {
-            throw new NumberFormatException("Некорректные входные данные");
+        if (!valid(width, height)) {
+            throw new IllegalArgumentException("Некорректные входные данные");
         }
 
         int snakeX = width / 2;
         int snakeY = height / 2;
 
-        Game game = new Game(height, width, snakeX, snakeY, Direction.RIGHT);
+        Game game = new Game(height, width, snakeX, snakeY);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("snake-grid.fxml"));
         Parent root = loader.load();
         GridController controller = loader.getController();
@@ -56,5 +56,9 @@ public class StartGameController {
         scene.getRoot().requestFocus();
 
         ((Stage) widthArea.getScene().getWindow()).close();
+    }
+
+    private boolean valid(int width, int height) {
+        return width >= 10 && height >= 10 && width <= 40 && height <= 40;
     }
 }

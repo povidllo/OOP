@@ -1,12 +1,10 @@
 package ru.nsu.kuzminov;
 
-import static ru.nsu.kuzminov.Cell.CellType.GRID;
-import static ru.nsu.kuzminov.Cell.CellType.SNAKE_BODY;
-import static ru.nsu.kuzminov.Cell.CellType.APPLE;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Random;
+
+import static ru.nsu.kuzminov.Cell.CellType.*;
 
 /**
  * Класс предоставляющий игру.
@@ -29,9 +27,8 @@ public class Game {
      * @param width       ширина поля.
      * @param snakeStartX начальное положение змейки по x.
      * @param snakeStartY начальное положение змейки по y.
-     * @param direction   начальное направление движения змейки.
      */
-    Game(int height, int width, int snakeStartX, int snakeStartY, Direction direction) {
+    Game(int height, int width, int snakeStartX, int snakeStartY) {
         this.grid = new Cell[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
@@ -40,7 +37,7 @@ public class Game {
         }
         this.width = width;
         this.height = height;
-        this.direction = direction;
+        this.direction = Direction.WAIT;
         this.nextDirection = new ArrayDeque<>();
         this.status = GameStatus.IN_GAME;
 
@@ -128,6 +125,9 @@ public class Game {
      * Метод для выставления яблока на поле.
      */
     public void setApples() {
+        if(getStatus() != GameStatus.IN_GAME) {
+            return;
+        }
         int xApple = random.nextInt(this.width);
         int yApple = random.nextInt(this.height);
         while (grid[xApple][yApple].getType() != GRID) {
@@ -141,12 +141,10 @@ public class Game {
      * Метод для движения змейки по полю.
      */
     public void move() {
-        if (status != GameStatus.IN_GAME) {
-            return;
-        }
+
         if (!nextDirection.isEmpty()) {
             direction = nextDirection.removeFirst();
-            System.out.println(direction);
+//            System.out.println(direction);
         }
 
         Cell head = snake.peekLast();
@@ -162,7 +160,7 @@ public class Game {
             case LEFT -> newX--;
             case RIGHT -> newX++;
             default -> {
-                break;
+                return;
             }
         }
         if (newX == -1 || newX == width || newY == -1 || newY == height
@@ -187,4 +185,42 @@ public class Game {
         }
     }
 
+    public void reset() {
+        this.grid = new Cell[width][height];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                grid[i][j] = new Cell(i, j, GRID);
+            }
+        }
+        this.nextDirection = new ArrayDeque<>();
+        this.status = GameStatus.IN_GAME;
+        this.direction = Direction.WAIT;
+
+        this.random = new Random();
+        this.status = GameStatus.IN_GAME;
+        this.snake = new ArrayDeque<>();
+        this.apples = new ArrayList<>();
+
+        this.grid[this.width / 2][this.height / 2].setType(SNAKE_BODY);
+        this.snake.add(grid[this.width / 2][this.height / 2]);
+        setApples();
+    }
+
+    /**
+     * Метод, возвращающий голову змейки.
+     *
+     * @return возвращает голову змейки.
+     */
+    public Cell getHead() {
+        return snake.peekLast();
+    }
+
+    /**
+     * Метод, возвращающий текущее направление движения змейки.
+     *
+     * @return возвращает текущее направление движения змейки.
+     */
+    public Direction getDirection() {
+        return direction;
+    }
 }

@@ -57,7 +57,7 @@ public class GridController {
                     return;
                 }
 
-                if (now - lastUpdate >= 300_000_000) { // 200ms
+                if (now - lastUpdate >= 200_000_000) {
                     game.move();
                     updateGrid();
                     lastUpdate = now;
@@ -79,7 +79,7 @@ public class GridController {
             for (int j = 0; j < height; j++) {
 
                 switch (curCell[i][j].getType()) {
-                    case SNAKE_BODY -> drawGridSegment(i, j, Color.GREEN);
+                    case SNAKE_BODY -> drawGridSegment(i, j, Color.LIGHTGREEN);
                     case GRID -> drawGridSegment(i, j, Color.WHITE);
                     case APPLE -> drawGridSegment(i, j, Color.RED);
                     default -> {
@@ -88,6 +88,8 @@ public class GridController {
                 }
             }
         }
+        Cell head = game.getHead();
+        drawGridSegment(head.getX(), head.getY(), Color.GREEN);
         drawGrid();
     }
 
