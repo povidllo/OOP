@@ -1,10 +1,10 @@
 package ru.nsu.kuzminov;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SnakeApplicationTest extends ApplicationTest {
 

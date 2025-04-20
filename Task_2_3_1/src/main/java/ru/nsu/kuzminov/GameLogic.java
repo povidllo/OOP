@@ -31,23 +31,22 @@ public class GameLogic implements EventHandler<KeyEvent> {
         switch (event.getCode()) {
             case W -> {
                 game.setNextDirection(Direction.UP);
-//                System.out.println("W");
             }
             case S -> {
                 game.setNextDirection(Direction.DOWN);
-//                System.out.println("S");
             }
             case A -> {
                 game.setNextDirection(Direction.LEFT);
-//                System.out.println("A");
             }
             case D -> {
                 game.setNextDirection(Direction.RIGHT);
-//                System.out.println("D");
             }
             case ENTER -> {
                 game.reset();
                 gridController.updateGrid();
+            }
+            default -> {
+                break;
             }
         }
     }

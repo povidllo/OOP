@@ -16,10 +16,10 @@ import java.io.IOException;
 public class StartGameController {
 
     @FXML
-    private TextArea widthArea;
+    TextArea widthArea;
 
     @FXML
-    private TextArea heightArea;
+    TextArea heightArea;
 
     /**
      * Обработчик нажатия на кнопку startButton.
@@ -28,7 +28,7 @@ public class StartGameController {
      * @throws IOException исключение может выкинуться при загрузке файла fxml.
      */
     @FXML
-    private void startGame(ActionEvent event) throws IOException {
+    void startGame(ActionEvent event) throws IOException {
         int width = Integer.parseInt(widthArea.getText());
         int height = Integer.parseInt(heightArea.getText());
 
@@ -66,7 +66,7 @@ public class StartGameController {
      * @param height высота.
      * @return true если подходит, иначе false.
      */
-    private boolean valid(int width, int height) {
+    boolean valid(int width, int height) {
         return width >= 10 && height >= 10 && width <= 40 && height <= 40;
     }
 }

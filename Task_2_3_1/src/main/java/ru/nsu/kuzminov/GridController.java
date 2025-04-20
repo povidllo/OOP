@@ -44,6 +44,23 @@ public class GridController {
     }
 
     /**
+     * Устанавливает поле.
+     * @param grid новое поле.
+     */
+    public void setGrid(Canvas grid) {
+        this.grid = grid;
+    }
+
+    /**
+     * Возвращает поле.
+     *
+     * @return поле.
+     */
+    public Canvas getGrid() {
+        return grid;
+    }
+
+    /**
      * Метод, инициализирующий игру.
      */
     public void initGame() {
@@ -89,7 +106,7 @@ public class GridController {
             }
         }
         Cell head = game.getHead();
-        drawGridSegment(head.getX(), head.getY(), Color.GREEN);
+        drawGridSegment(head.getX(), head.getYcord(), Color.GREEN);
         drawGrid();
     }
 
@@ -113,7 +130,7 @@ public class GridController {
     /**
      * Метод, отрисовывающий один сегмент поля.
      */
-    private void drawGridSegment(int x, int y, Color color) {
+    void drawGridSegment(int x, int y, Color color) {
         GraphicsContext gc = grid.getGraphicsContext2D();
         gc.setFill(color);
         gc.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);

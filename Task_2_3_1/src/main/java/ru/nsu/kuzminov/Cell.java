@@ -4,9 +4,10 @@ package ru.nsu.kuzminov;
  * Класс для представления одной клетки игрового поля.
  * Каждая клетка имеет координаты (x, y) и тип, определённый в перечислении {@link CellType}.
  */
+
 public class Cell {
-    private final int x;
-    private final int y;
+    private final int xcord;
+    private final int ycord;
     private CellType type;
 
     /**
@@ -17,8 +18,8 @@ public class Cell {
      * @param type начальный тип клетки.
      */
     Cell(int x, int y, CellType type) {
-        this.x = x;
-        this.y = y;
+        this.xcord = x;
+        this.ycord = y;
         this.type = type;
     }
 
@@ -37,7 +38,7 @@ public class Cell {
      * @return координата X.
      */
     public int getX() {
-        return x;
+        return xcord;
     }
 
     /**
@@ -45,8 +46,8 @@ public class Cell {
      *
      * @return координата Y.
      */
-    public int getY() {
-        return y;
+    public int getYcord() {
+        return ycord;
     }
 
     /**

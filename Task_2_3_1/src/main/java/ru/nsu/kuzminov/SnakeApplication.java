@@ -11,6 +11,19 @@ import javafx.stage.Stage;
  * Класс, наследующийся от Application предоставляющий приложение.
  */
 public class SnakeApplication extends Application {
+
+    private FXMLLoader fxmlLoader;
+
+    // Конструктор по умолчанию
+    public SnakeApplication() {
+        this.fxmlLoader = new FXMLLoader(getClass().getResource("start-menu.fxml"));
+    }
+
+    // Конструктор с возможностью передать FXMLLoader
+    public SnakeApplication(FXMLLoader fxmlLoader) {
+        this.fxmlLoader = fxmlLoader;
+    }
+
     /**
      * main метод, запускающий приложение.
      *
@@ -28,14 +41,12 @@ public class SnakeApplication extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("start-menu.fxml"));
-        Parent root = loader.load();
+        Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Snake - меню");
 
         stage.show();
-
     }
 }

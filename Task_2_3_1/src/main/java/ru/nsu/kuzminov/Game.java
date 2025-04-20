@@ -127,7 +127,7 @@ public class Game {
      * Метод для выставления яблока на поле.
      */
     public void setApples() {
-        if(getStatus() != GameStatus.IN_GAME) {
+        if (getStatus() != GameStatus.IN_GAME) {
             return;
         }
         int xApple = random.nextInt(this.width);
@@ -146,12 +146,11 @@ public class Game {
 
         if (!nextDirection.isEmpty()) {
             direction = nextDirection.removeFirst();
-//            System.out.println(direction);
         }
 
         Cell head = snake.peekLast();
         int x = head.getX();
-        int y = head.getY();
+        int y = head.getYcord();
 
         int newX = x;
         int newY = y;
@@ -183,10 +182,13 @@ public class Game {
             grid[newX][newY].setType(SNAKE_BODY);
 
             Cell tail = snake.removeFirst();
-            grid[tail.getX()][tail.getY()].setType(GRID);
+            grid[tail.getX()][tail.getYcord()].setType(GRID);
         }
     }
 
+    /**
+     * Данный метод перезагружает игру.
+     */
     public void reset() {
         this.grid = new Cell[width][height];
         for (int i = 0; i < width; i++) {
