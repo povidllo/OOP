@@ -70,3 +70,9 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
