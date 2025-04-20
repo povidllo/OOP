@@ -66,7 +66,7 @@ public class StartGameController {
      * @param height высота.
      * @return true если подходит, иначе false.
      */
-    boolean valid(int width, int height) {
+    public boolean valid(int width, int height) {
         return width >= 10 && height >= 10 && width <= 40 && height <= 40;
     }
 }

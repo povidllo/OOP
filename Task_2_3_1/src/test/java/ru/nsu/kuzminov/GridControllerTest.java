@@ -49,6 +49,7 @@ class GridControllerTest {
         assertEquals(newGrid, controller.getGrid());
     }
 
+
     @Test
     void testDrawGridSegment() {
         controller.drawGridSegment(1, 1, Color.RED);
