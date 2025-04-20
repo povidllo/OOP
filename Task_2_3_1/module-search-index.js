@@ -1,1 +1,1 @@
-moduleSearchIndex = [{"l":"ru.nsu.kuzminov"}];updateSearchResults();
+moduleSearchIndex = [];updateSearchResults();
