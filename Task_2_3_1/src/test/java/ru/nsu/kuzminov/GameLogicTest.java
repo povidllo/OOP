@@ -21,8 +21,9 @@ class GameLogicTest {
     }
 
     @Test
-    void testHandleWKey() {
-        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "W", "W", KeyCode.W, false, false, false, false);
+    void testHandleWkey() {
+        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "W", "W",
+                KeyCode.W, false, false, false, false);
         gameLogic.handle(event);
 
         verify(game).setNextDirection(Direction.UP);
@@ -30,8 +31,9 @@ class GameLogicTest {
     }
 
     @Test
-    void testHandleAKey() {
-        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "A", "A", KeyCode.A, false, false, false, false);
+    void testHandleAkey() {
+        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "A", "A",
+                KeyCode.A, false, false, false, false);
         gameLogic.handle(event);
 
         verify(game).setNextDirection(Direction.LEFT);
@@ -39,8 +41,9 @@ class GameLogicTest {
     }
 
     @Test
-    void testHandleSKey() {
-        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "S", "S", KeyCode.S, false, false, false, false);
+    void testHandleSkey() {
+        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "S", "S",
+                KeyCode.S, false, false, false, false);
         gameLogic.handle(event);
 
         verify(game).setNextDirection(Direction.DOWN);
@@ -48,8 +51,9 @@ class GameLogicTest {
     }
 
     @Test
-    void testHandleDKey() {
-        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "D", "D", KeyCode.D, false, false, false, false);
+    void testHandleDkey() {
+        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "D", "D",
+                KeyCode.D, false, false, false, false);
         gameLogic.handle(event);
 
         verify(game).setNextDirection(Direction.RIGHT);
@@ -58,7 +62,8 @@ class GameLogicTest {
 
     @Test
     void testHandleEnterKey() {
-        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "ENTER", "ENTER", KeyCode.ENTER, false, false, false, false);
+        KeyEvent event = new KeyEvent(KeyEvent.KEY_PRESSED, "ENTER", "ENTER",
+                KeyCode.ENTER, false, false, false, false);
         gameLogic.handle(event);
 
         verify(game).reset();

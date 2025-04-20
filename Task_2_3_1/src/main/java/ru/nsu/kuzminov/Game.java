@@ -1,10 +1,12 @@
 package ru.nsu.kuzminov;
 
+import static ru.nsu.kuzminov.Cell.CellType.APPLE;
+import static ru.nsu.kuzminov.Cell.CellType.GRID;
+import static ru.nsu.kuzminov.Cell.CellType.SNAKE_BODY;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Random;
-
-import static ru.nsu.kuzminov.Cell.CellType.*;
 
 /**
  * Класс предоставляющий игру.

@@ -1,9 +1,13 @@
 package ru.nsu.kuzminov;
 
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static ru.nsu.kuzminov.Cell.CellType.*;
+import static ru.nsu.kuzminov.Cell.CellType.APPLE;
+import static ru.nsu.kuzminov.Cell.CellType.GRID;
+import static ru.nsu.kuzminov.Cell.CellType.SNAKE_BODY;
+
+import org.junit.jupiter.api.Test;
+
 
 class GameTest {
 
@@ -52,7 +56,7 @@ class GameTest {
     }
 
     @Test
-    public void testWIN() {
+    public void testWin() {
         Game game = new Game(1, 2, 0, 0);
         game.setNextDirection(Direction.RIGHT);
         game.move();
