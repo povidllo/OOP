@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 /**
@@ -32,14 +31,7 @@ public class StartGameController {
         int width = Integer.parseInt(widthArea.getText());
         int height = Integer.parseInt(heightArea.getText());
 
-        if (!valid(width, height)) {
-            throw new IllegalArgumentException("Некорректные входные данные");
-        }
-
-        int snakeX = width / 2;
-        int snakeY = height / 2;
-
-        Game game = new Game(height, width, snakeX, snakeY);
+        Game game = initGame(width, height);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("snake-grid.fxml"));
         Parent root = loader.load();
         GridController controller = loader.getController();
@@ -60,6 +52,25 @@ public class StartGameController {
     }
 
     /**
+     * Инициирует игру.
+     *
+     * @param width  ширина поля.
+     * @param height длина поля.
+     * @return игру.
+     */
+    public Game initGame(int width, int height) {
+        if (!valid(width, height)) {
+            throw new IllegalArgumentException("Некорректные входные данные");
+        }
+
+        int snakeX = width / 2;
+        int snakeY = height / 2;
+
+        Game game = new Game(height, width, snakeX, snakeY);
+        return game;
+    }
+
+    /**
      * Проверяет, подходит ли размер или нет.
      *
      * @param width  ширина.
@@ -69,4 +80,5 @@ public class StartGameController {
     public boolean valid(int width, int height) {
         return width >= 10 && height >= 10 && width <= 40 && height <= 40;
     }
+
 }

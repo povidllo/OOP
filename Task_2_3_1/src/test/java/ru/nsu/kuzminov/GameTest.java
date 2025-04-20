@@ -2,11 +2,10 @@ package ru.nsu.kuzminov;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 import java.util.ArrayDeque;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class GameTest {
 
@@ -34,7 +33,7 @@ class GameTest {
     }
 
     @Test
-    void testSetNextDirectionWrongUP() {
+    void testSetNextDirectionWrongUp() {
         game.setNextDirection(Direction.UP);
         game.move();
         assertEquals(Direction.UP, game.getDirection());
@@ -44,7 +43,7 @@ class GameTest {
     }
 
     @Test
-    void testSetNextDirectionWrongUPHave() {
+    void testSetNextDirectionWrongUpHave() {
         game.setNextDirection(Direction.LEFT);
         game.setNextDirection(Direction.UP);
         game.move();
@@ -62,6 +61,7 @@ class GameTest {
         game.setNextDirection(Direction.UP);
         assertFalse(game.getDirection() == Direction.UP);
     }
+
     @Test
     void testSetNextDirectionWrongDownHave() {
         game.setNextDirection(Direction.LEFT);

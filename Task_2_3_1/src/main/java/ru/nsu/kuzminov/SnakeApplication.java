@@ -1,28 +1,16 @@
 package ru.nsu.kuzminov;
 
-import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.io.IOException;
 
 /**
  * Класс, наследующийся от Application предоставляющий приложение.
  */
 public class SnakeApplication extends Application {
-
-    private FXMLLoader fxmlLoader;
-
-    // Конструктор по умолчанию
-    public SnakeApplication() {
-        this.fxmlLoader = new FXMLLoader(getClass().getResource("start-menu.fxml"));
-    }
-
-    // Конструктор с возможностью передать FXMLLoader
-    public SnakeApplication(FXMLLoader fxmlLoader) {
-        this.fxmlLoader = fxmlLoader;
-    }
 
     /**
      * main метод, запускающий приложение.
@@ -41,6 +29,7 @@ public class SnakeApplication extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = setFxmlLoader();
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
@@ -48,5 +37,12 @@ public class SnakeApplication extends Application {
         stage.setTitle("Snake - меню");
 
         stage.show();
+    }
+
+    /**
+     * Конструктор для fxmlLoader.
+     */
+    public FXMLLoader setFxmlLoader() {
+        return new FXMLLoader(getClass().getResource("start-menu.fxml"));
     }
 }
