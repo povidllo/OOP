@@ -10,11 +10,14 @@ class StartGameControllerTest {
     @Test
     void validTest() {
         StartGameController cont = new StartGameController();
+
         assertTrue(cont.valid(12,12));
     }
 
+    @Test
     void testInitGame() {
         StartGameController cont = new StartGameController();
+
         assertNotNull(cont.initGame(13,13));
     }
 }

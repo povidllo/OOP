@@ -1,6 +1,8 @@
 package ru.nsu.kuzminov;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
