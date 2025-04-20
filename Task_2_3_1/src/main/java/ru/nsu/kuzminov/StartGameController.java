@@ -1,6 +1,5 @@
 package ru.nsu.kuzminov;
 
-import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  * Класс, предоставляющий контроллер при старте игры.
@@ -58,6 +59,13 @@ public class StartGameController {
         ((Stage) widthArea.getScene().getWindow()).close();
     }
 
+    /**
+     * Проверяет, подходит ли размер или нет.
+     *
+     * @param width  ширина.
+     * @param height высота.
+     * @return true если подходит, иначе false.
+     */
     private boolean valid(int width, int height) {
         return width >= 10 && height >= 10 && width <= 40 && height <= 40;
     }
