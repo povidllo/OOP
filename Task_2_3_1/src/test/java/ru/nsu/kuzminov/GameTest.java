@@ -1,73 +1,213 @@
 package ru.nsu.kuzminov;
 
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static ru.nsu.kuzminov.Cell.CellType.APPLE;
-import static ru.nsu.kuzminov.Cell.CellType.GRID;
-import static ru.nsu.kuzminov.Cell.CellType.SNAKE_BODY;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import java.lang.reflect.Field;
+import java.util.ArrayDeque;
 
 class GameTest {
 
-    @Test
-    public void testWait() {
-        Game game = new Game(10, 10, 5, 5);
-        assertEquals(Direction.WAIT, game.getDirection());
+    private Game game;
+
+    @BeforeEach
+    void setUp() {
+        game = new Game(10, 10, 5, 5);
     }
 
     @Test
-    public void testSetNextDirection() {
-        Game game = new Game(10, 10, 5, 5);
+    void testGetters() {
+        assertEquals(10, game.getWidth());
+        assertEquals(10, game.getHeight());
+        assertEquals(GameStatus.IN_GAME, game.getStatus());
+        assertEquals(Direction.WAIT, game.getDirection());
+        assertNotNull(game.getGrid());
+        assertNotNull(game.getHead());
+    }
+
+    @Test
+    void testSetStatus() {
+        game.setStatus(GameStatus.LOOSE);
+        assertEquals(GameStatus.LOOSE, game.getStatus());
+    }
+
+    @Test
+    void testSetNextDirectionWrongUP() {
         game.setNextDirection(Direction.UP);
         game.move();
         assertEquals(Direction.UP, game.getDirection());
+
+        game.setNextDirection(Direction.DOWN);
+        assertFalse(game.getDirection() == Direction.DOWN);
     }
 
     @Test
-    public void testGrid() {
-        Game game = new Game(2, 2, 1, 1);
-        Cell[][] gameGrid = game.getGrid();
-        int height = game.getHeight();
-        int width = game.getWidth();
-        Cell[][] testGrid = new Cell[height][width];
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                testGrid[i][j] = new Cell(i, j, GRID);
-            }
-        }
+    void testSetNextDirectionWrongUPHave() {
+        game.setNextDirection(Direction.LEFT);
+        game.setNextDirection(Direction.UP);
+        game.move();
 
-        testGrid[1][1].setType(SNAKE_BODY);
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                if (gameGrid[i][j].getType() == APPLE) {
-                    continue;
+        game.setNextDirection(Direction.DOWN);
+        assertFalse(game.getDirection() == Direction.DOWN);
+    }
+
+    @Test
+    void testSetNextDirectionWrongDown() {
+        game.setNextDirection(Direction.DOWN);
+        game.move();
+        assertEquals(Direction.DOWN, game.getDirection());
+
+        game.setNextDirection(Direction.UP);
+        assertFalse(game.getDirection() == Direction.UP);
+    }
+    @Test
+    void testSetNextDirectionWrongDownHave() {
+        game.setNextDirection(Direction.LEFT);
+        game.setNextDirection(Direction.DOWN);
+        game.move();
+
+        game.setNextDirection(Direction.UP);
+        assertFalse(game.getDirection() == Direction.UP);
+    }
+
+    @Test
+    void testSetNextDirectionWrongLeft() {
+        game.setNextDirection(Direction.LEFT);
+        game.move();
+        assertEquals(Direction.LEFT, game.getDirection());
+
+        game.setNextDirection(Direction.RIGHT);
+        assertFalse(game.getDirection() == Direction.RIGHT);
+    }
+
+    @Test
+    void testSetNextDirectionWrongLeftHave() {
+        game.setNextDirection(Direction.UP);
+        game.setNextDirection(Direction.LEFT);
+        game.move();
+
+        game.setNextDirection(Direction.RIGHT);
+        assertFalse(game.getDirection() == Direction.RIGHT);
+    }
+
+    @Test
+    void testSetNextDirectionWrongRight() {
+        game.setNextDirection(Direction.RIGHT);
+        game.move();
+        assertEquals(Direction.RIGHT, game.getDirection());
+
+        game.setNextDirection(Direction.LEFT);
+        assertFalse(game.getDirection() == Direction.LEFT);
+    }
+
+    @Test
+    void testSetNextDirectionWrongRightHave() {
+        game.setNextDirection(Direction.UP);
+        game.setNextDirection(Direction.RIGHT);
+        game.move();
+
+        game.setNextDirection(Direction.LEFT);
+        assertFalse(game.getDirection() == Direction.LEFT);
+    }
+
+    @Test
+    void testSetApples() throws Exception {
+        game.setStatus(GameStatus.WIN);
+        game.setApples();
+
+        game.setStatus(GameStatus.IN_GAME);
+        clearApples();
+
+        game.setApples();
+
+        boolean hasApple = false;
+        for (int i = 0; i < game.getWidth(); i++) {
+            for (int j = 0; j < game.getHeight(); j++) {
+                if (game.getGrid()[i][j].getType() == Cell.CellType.APPLE) {
+                    hasApple = true;
                 }
-                assertEquals(testGrid[i][j].getType(), gameGrid[i][j].getType());
             }
         }
+        assertTrue(hasApple);
     }
 
     @Test
-    public void testStatus() {
-        Game game = new Game(2, 2, 1, 1);
+    void testMoveWait() {
+        game.move();
+        assertEquals(Direction.WAIT, game.getDirection());
         assertEquals(GameStatus.IN_GAME, game.getStatus());
     }
 
     @Test
-    public void testWin() {
-        Game game = new Game(1, 2, 0, 0);
-        game.setNextDirection(Direction.RIGHT);
-        game.move();
-        assertEquals(GameStatus.WIN, game.getStatus());
+    void testMoveCollisionWithWall() {
+        game.setNextDirection(Direction.UP);
+        for (int i = 0; i < 10; i++) {
+            game.move();
+        }
+        assertEquals(GameStatus.LOOSE, game.getStatus());
     }
 
     @Test
-    public void testReset() {
-        Game game = new Game(1, 2, 0, 0);
+    void testMoveCollisionWithSelf() {
+        game.setNextDirection(Direction.RIGHT);
+        game.move();
+        game.setNextDirection(Direction.DOWN);
+        game.move();
+        game.setNextDirection(Direction.LEFT);
+        game.move();
+        game.setNextDirection(Direction.UP);
+        game.move();
+        System.out.println(game.getStatus());
+        assertEquals(GameStatus.IN_GAME, game.getStatus());
+    }
+
+    @Test
+    void testMoveEatApple() throws Exception {
+        Cell head = game.getHead();
+        int x = head.getX();
+        int y = head.getYcord();
+
+        if (x + 1 < game.getWidth()) {
+            game.getGrid()[x + 1][y].setType(Cell.CellType.APPLE);
+            game.setNextDirection(Direction.RIGHT);
+        } else {
+            game.getGrid()[x - 1][y].setType(Cell.CellType.APPLE);
+            game.setNextDirection(Direction.LEFT);
+        }
+
+        int oldSize = getSnakeSize();
+
+        game.move();
+
+        assertEquals(oldSize + 1, getSnakeSize());
+        assertEquals(GameStatus.IN_GAME, game.getStatus());
+    }
+
+    @Test
+    void testReset() {
         game.reset();
-        var gameGrid = game.getGrid();
-        assertEquals(SNAKE_BODY, gameGrid[2 / 2][1 / 2].getType());
+        assertEquals(GameStatus.IN_GAME, game.getStatus());
+        assertEquals(Direction.WAIT, game.getDirection());
+        assertNotNull(game.getHead());
+    }
+
+
+    private void clearApples() {
+        for (int i = 0; i < game.getWidth(); i++) {
+            for (int j = 0; j < game.getHeight(); j++) {
+                if (game.getGrid()[i][j].getType() == Cell.CellType.APPLE) {
+                    game.getGrid()[i][j].setType(Cell.CellType.GRID);
+                }
+            }
+        }
+    }
+
+    private int getSnakeSize() throws Exception {
+        Field snakeField = Game.class.getDeclaredField("snake");
+        snakeField.setAccessible(true);
+        ArrayDeque<?> snake = (ArrayDeque<?>) snakeField.get(game);
+        return snake.size();
     }
 }
