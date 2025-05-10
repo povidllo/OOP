@@ -1,4 +1,4 @@
-package ru.nsu.kuzminov;
+package ru.nsu.kuzminov.utils;
 
 /**
  * Enum класс для определения статуса игры.

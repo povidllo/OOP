@@ -9,6 +9,10 @@ import java.lang.reflect.Field;
 import java.util.ArrayDeque;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.nsu.kuzminov.utils.Cell;
+import ru.nsu.kuzminov.utils.Direction;
+import ru.nsu.kuzminov.utils.GameStatus;
+import ru.nsu.kuzminov.game.Game;
 
 class GameTest {
 

@@ -59,7 +59,7 @@ import java.io.IOException;
 /**
  * Класс, наследующийся от Application предоставляющий приложение.
  */
-public class SnakeApplication extends Application {
+public class secondMain extends Application {
 
     /**
      * main метод, запускающий приложение.
@@ -84,7 +84,6 @@ public class SnakeApplication extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Snake - меню");
-
 
         stage.show();
     }

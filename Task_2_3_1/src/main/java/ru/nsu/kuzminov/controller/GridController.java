@@ -1,10 +1,13 @@
-package ru.nsu.kuzminov;
+package ru.nsu.kuzminov.controller;
 
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import ru.nsu.kuzminov.utils.Cell;
+import ru.nsu.kuzminov.utils.GameStatus;
+import ru.nsu.kuzminov.game.Game;
 
 /**
  * Класс, предоставляющий контроллер javafx для поля.
@@ -12,9 +15,9 @@ import javafx.scene.paint.Color;
 public class GridController {
 
     @FXML
-    private Canvas grid;
-    private Game game;
-    private int cellSize;
+    protected Canvas grid;
+    protected Game game;
+    protected int cellSize;
 
     /**
      * Метод для возвращения размера поля.
@@ -31,7 +34,7 @@ public class GridController {
      * @param game     объект игры.
      * @param cellSize размер одной клетки поля в пикселях.
      */
-    void setGame(Game game, int cellSize) {
+    public void setGame(Game game, int cellSize) {
         this.game = game;
         this.cellSize = cellSize;
     }
@@ -130,7 +133,7 @@ public class GridController {
     /**
      * Метод, отрисовывающий один сегмент поля.
      */
-    void drawGridSegment(int x, int y, Color color) {
+    public void drawGridSegment(int x, int y, Color color) {
         GraphicsContext gc = grid.getGraphicsContext2D();
         gc.setFill(color);
         gc.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.nsu.kuzminov.controller.OnlineGridController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="422.0">
+         <center>
+            <Canvas fx:id="grid" height="390.0" width="390.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <SplitPane dividerPositions="0.052763819095477386, 0.11306532663316583, 0.17336683417085427" orientation="VERTICAL" prefHeight="400.0" prefWidth="187.0">
+        <items>
+            <Label fx:id="player1Label" alignment="CENTER" prefHeight="100.0" prefWidth="192.0" />
+            <Label fx:id="player2Label" alignment="CENTER" prefHeight="100.0" prefWidth="192.0" />
+            <Label fx:id="player3Label" alignment="CENTER" prefHeight="100.0" prefWidth="192.0" />
+            <Label fx:id="player4Label" alignment="CENTER" prefHeight="100.0" prefWidth="192.0" />
+        </items>
+      </SplitPane>
+   </children>
+</HBox>

@@ -1,14 +1,10 @@
-package ru.nsu.kuzminov;
+package ru.nsu.kuzminov.controller;
 
-import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
+import ru.nsu.kuzminov.game.Game;
+import ru.nsu.kuzminov.utils.Direction;
 
-/**
- * Класс для реализации игровой логики.
- */
-public class GameLogic implements EventHandler<KeyEvent> {
-    private Game game;
-    private GridController gridController;
+public class OnlineGameLogic extends GameLogic{
 
     /**
      * Конструктор класса.
@@ -16,9 +12,8 @@ public class GameLogic implements EventHandler<KeyEvent> {
      * @param game           объект игры.
      * @param gridController контроллер поля javafx.
      */
-    GameLogic(Game game, GridController gridController) {
-        this.game = game;
-        this.gridController = gridController;
+    OnlineGameLogic(Game game, GridController gridController) {
+        super(game, gridController);
     }
 
     /**
@@ -30,7 +25,7 @@ public class GameLogic implements EventHandler<KeyEvent> {
     public void handle(KeyEvent event) {
         switch (event.getCode()) {
             case W -> {
-                game.setNextDirection(Direction.UP);
+                this.game.setNextDirection(Direction.UP);
             }
             case S -> {
                 game.setNextDirection(Direction.DOWN);
@@ -40,10 +35,6 @@ public class GameLogic implements EventHandler<KeyEvent> {
             }
             case D -> {
                 game.setNextDirection(Direction.RIGHT);
-            }
-            case ENTER -> {
-                game.reset();
-                gridController.updateGrid();
             }
             default -> {
                 break;

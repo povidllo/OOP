@@ -1,8 +1,12 @@
-package ru.nsu.kuzminov;
+package ru.nsu.kuzminov.game;
 
-import static ru.nsu.kuzminov.Cell.CellType.APPLE;
-import static ru.nsu.kuzminov.Cell.CellType.GRID;
-import static ru.nsu.kuzminov.Cell.CellType.SNAKE_BODY;
+import ru.nsu.kuzminov.utils.Cell;
+import ru.nsu.kuzminov.utils.Direction;
+import ru.nsu.kuzminov.utils.GameStatus;
+
+import static ru.nsu.kuzminov.utils.Cell.CellType.APPLE;
+import static ru.nsu.kuzminov.utils.Cell.CellType.GRID;
+import static ru.nsu.kuzminov.utils.Cell.CellType.SNAKE_BODY;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -12,15 +16,16 @@ import java.util.Random;
  * Класс предоставляющий игру.
  */
 public class Game {
-    private Cell[][] grid;
-    private ArrayDeque<Cell> snake;
-    private ArrayList<Cell> apples;
-    private final int width;
-    private final int height;
-    private Direction direction;
-    private ArrayDeque<Direction> nextDirection;
-    private Random random;
-    private GameStatus status;
+    protected Cell[][] grid;
+    protected ArrayDeque<Cell> snake;
+    protected ArrayList<Cell> apples;
+    protected final int width;
+    protected final int height;
+    protected Direction direction;
+    protected ArrayDeque<Direction> nextDirection;
+    protected Random random;
+    protected GameStatus status;
+    protected int score;
 
     /**
      * Конструктор игры.
@@ -30,7 +35,7 @@ public class Game {
      * @param snakeStartX начальное положение змейки по x.
      * @param snakeStartY начальное положение змейки по y.
      */
-    Game(int height, int width, int snakeStartX, int snakeStartY) {
+    public Game(int height, int width, int snakeStartX, int snakeStartY) {
         this.grid = new Cell[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
@@ -47,6 +52,7 @@ public class Game {
         this.status = GameStatus.IN_GAME;
         this.snake = new ArrayDeque<>();
         this.apples = new ArrayList<>();
+        this.score = 0;
 
         this.grid[snakeStartX][snakeStartY].setType(SNAKE_BODY);
         this.snake.add(grid[snakeStartX][snakeStartY]);
@@ -175,6 +181,8 @@ public class Game {
             if (snake.size() == width * height) {
                 setStatus(GameStatus.WIN);
             }
+            this.score++;
+            System.out.printf("\rscore: " + score);
             setApples();
 
         } else {
@@ -204,6 +212,7 @@ public class Game {
         this.status = GameStatus.IN_GAME;
         this.snake = new ArrayDeque<>();
         this.apples = new ArrayList<>();
+        this.score = 0;
 
         this.grid[this.width / 2][this.height / 2].setType(SNAKE_BODY);
         this.snake.add(grid[this.width / 2][this.height / 2]);
@@ -217,6 +226,15 @@ public class Game {
      */
     public Cell getHead() {
         return snake.peekLast();
+    }
+
+    /**
+     * Метод, возвращающий очки.
+     *
+     * @return score.
+     */
+    public int getScore() {
+        return score;
     }
 
     /**

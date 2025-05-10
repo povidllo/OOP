@@ -1,4 +1,4 @@
-package ru.nsu.kuzminov;
+package ru.nsu.kuzminov.utils;
 
 /**
  * Класс для представления одной клетки игрового поля.
@@ -17,7 +17,7 @@ public class Cell {
      * @param y    координата Y.
      * @param type начальный тип клетки.
      */
-    Cell(int x, int y, CellType type) {
+    public Cell(int x, int y, CellType type) {
         this.xcord = x;
         this.ycord = y;
         this.type = type;

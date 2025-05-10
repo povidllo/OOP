@@ -8,6 +8,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.nsu.kuzminov.controller.GameLogic;
+import ru.nsu.kuzminov.controller.GridController;
+import ru.nsu.kuzminov.utils.Direction;
+import ru.nsu.kuzminov.game.Game;
 
 class GameLogicTest {
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.2361111111111111, 0.5" minHeight="130.0" minWidth="360.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.nsu.kuzminov.controller.HostMenuController">
+  <items>
+      <Label fx:id="label" prefHeight="37.0" prefWidth="406.0" text="Waiting for another player" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="start" mnemonicParsing="false" onAction="#startBtn" prefHeight="49.0" prefWidth="435.0" text="Start Game" />
+  </items>
+</SplitPane>

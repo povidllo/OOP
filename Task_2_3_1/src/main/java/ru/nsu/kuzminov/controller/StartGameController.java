@@ -1,4 +1,4 @@
-package ru.nsu.kuzminov;
+package ru.nsu.kuzminov.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import ru.nsu.kuzminov.game.Game;
+
 import java.io.IOException;
 
 /**
@@ -27,7 +29,7 @@ public class StartGameController {
      * @throws IOException исключение может выкинуться при загрузке файла fxml.
      */
     @FXML
-    void startGame(ActionEvent event) throws IOException {
+    public void startGame(ActionEvent event) throws IOException {
         int width = Integer.parseInt(widthArea.getText());
         int height = Integer.parseInt(heightArea.getText());
 
