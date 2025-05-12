@@ -1,7 +1,7 @@
 package ru.nsu.kuzminov.game;
 
 import ru.nsu.kuzminov.utils.Cell;
-import ru.nsu.kuzminov.utils    .ConnectionStatus;
+import ru.nsu.kuzminov.utils.ConnectionStatus;
 import ru.nsu.kuzminov.utils.GameStatus;
 import ru.nsu.kuzminov.utils.InGameStatus;
 
@@ -26,19 +26,17 @@ public class OnlineGameHost extends Game {
 
     private ConnectionStatus connectionStatus;
     private InGameStatus inGameStatus;
-    private List<Thread> connectionThread;
-    private int playerId;
+    private final List<Thread> connectionThread;
 
-    private int playerCount;
-//    private List<Socket> clientSockets;
+    private final int playerCount;
     private ServerSocket serverSocket;
-    private AtomicInteger[] scores;
-    private AtomicBoolean flagSend;
+    private final AtomicInteger[] scores;
+    private final AtomicBoolean flagSend;
 
-    public final Lock lock = new ReentrantLock(); // Замок для синхронизации
-    public final Condition gameStatusCondition = lock.newCondition(); // Условная переменная
-    public final Lock sendLock = new ReentrantLock(); // Замок для синхронизации
-    public final Condition sendCondtion = sendLock.newCondition(); // Условная переменная
+    public final Lock lock = new ReentrantLock();
+    public final Condition gameStatusCondition = lock.newCondition();
+    public final Lock sendLock = new ReentrantLock();
+    public final Condition sendCondition = sendLock.newCondition();
 
     /**
      * Конструктор игры для хоста.
@@ -48,7 +46,6 @@ public class OnlineGameHost extends Game {
         this.connectionStatus = ConnectionStatus.UNKNOWN;
         this.inGameStatus = InGameStatus.WAITING;
         this.playerCount = playerCount;
-        this.playerId = 0;
         this.scores = new AtomicInteger[this.playerCount];
         for (int i = 0; i < playerCount; i++) {
             scores[i] = new AtomicInteger(0);
@@ -83,7 +80,6 @@ public class OnlineGameHost extends Game {
     private void runHost(int playerId) {
         try {
             Socket client = serverSocket.accept();
-//            this.clientSockets.add(client);
             System.out.println("Игрок подключен: " + client.getInetAddress());
             HostToClientsProcessing(client, playerId);
         } catch (IOException e) {
@@ -95,14 +91,14 @@ public class OnlineGameHost extends Game {
         try {
             ObjectOutputStream outStreams = new ObjectOutputStream(client.getOutputStream());
             ObjectInputStream inputStream = new ObjectInputStream(client.getInputStream());
-            outStreams.writeInt(this.playerCount);  // Количество игроков
-            outStreams.writeInt(playerID);  // ID игрока
-            outStreams.flush();  // Важно вызвать flush() для отправки данных
+            outStreams.writeInt(this.playerCount);
+            outStreams.writeInt(playerID);
+            outStreams.flush();
 
             lock.lock();
             while (inGameStatus == InGameStatus.WAITING) {
                 System.out.println("Ожидание изменения состояния игры...");
-                gameStatusCondition.await(); // Блокируем поток до сигнала
+                gameStatusCondition.await();
             }
             lock.unlock();
 
@@ -116,17 +112,14 @@ public class OnlineGameHost extends Game {
             while(true) {
                 sendLock.lock();
                 while(!flagSend.get()) {
-                    sendCondtion.await();
+                    sendCondition.await();
                 }
                 flagSend.set(false);
                 outStreams.writeBoolean(true);
                 for(int i = 0; i < playerCount; i++) {
-                    outStreams.writeInt(i);  // ID игрока
-                    System.out.println(i);
-                    outStreams.writeInt(scores[i].get()); //очки i игрока
-                    System.out.println(scores[i].get());
+                    outStreams.writeInt(i);
+                    outStreams.writeInt(scores[i].get());
                     outStreams.flush();
-                    System.out.println("sent");
                 }
                 sendLock.unlock();
             }
@@ -147,7 +140,7 @@ public class OnlineGameHost extends Game {
                 try {
                     scores[playerNumber].set(playerScore);
                     flagSend.set(true);
-                    sendCondtion.signalAll();
+                    sendCondition.signalAll();
                 } finally {
                     sendLock.unlock();
                 }
@@ -201,7 +194,7 @@ public class OnlineGameHost extends Game {
             try {
                 scores[0].set(this.score);
                 flagSend.set(true);
-                sendCondtion.signalAll();
+                sendCondition.signalAll();
             } finally {
                 sendLock.unlock();
             }

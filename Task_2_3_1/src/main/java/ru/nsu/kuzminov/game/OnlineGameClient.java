@@ -73,7 +73,6 @@ public class OnlineGameClient extends Game {
             inputStream = new ObjectInputStream(socket.getInputStream());
 
             this.playerCount = inputStream.readInt();
-            System.out.println("player count " + this.playerCount);
             this.scores = new AtomicInteger[this.playerCount];
             for (int i = 0; i < playerCount; i++) {
                 this.scores[i] = new AtomicInteger(0);
@@ -91,7 +90,6 @@ public class OnlineGameClient extends Game {
 
             while(true) {
                 boolean hasUpdate = inputStream.readBoolean();
-                System.out.println("dsfdasdafsdfsda");
                 if(!hasUpdate) {
                     continue;
                 }
@@ -101,7 +99,6 @@ public class OnlineGameClient extends Game {
                     int score = inputStream.readInt();
                     scores[id].set(score);
                 }
-                System.out.println(Arrays.toString(scores));
                 recieveLock.unlock();
             }
 
@@ -110,10 +107,10 @@ public class OnlineGameClient extends Game {
         }
     }
     
-    @Override
     /**
      * Метод для движения змейки по полю.
      */
+    @Override
     public void move() {
 
         if (!nextDirection.isEmpty()) {

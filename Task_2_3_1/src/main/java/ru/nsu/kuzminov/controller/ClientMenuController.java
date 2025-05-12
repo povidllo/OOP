@@ -2,7 +2,6 @@ package ru.nsu.kuzminov.controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -12,10 +11,7 @@ import java.io.IOException;
 
 public class ClientMenuController {
 
-    private OnlineGameClient game;
-
     public void processClient(Stage curStage, OnlineGameClient game) {
-        this.game = game;
 
         new Thread(() -> {
             try {

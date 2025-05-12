@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.nsu.kuzminov.controller.ChooseModeController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="300.0" text="Choose game mode" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="singleBtn" mnemonicParsing="false" onAction="#pressSingleBtn" prefHeight="35.0" prefWidth="150.0" text="Single" />
+            <Button fx:id="MultiplayerBtn" mnemonicParsing="false" onAction="#pressMultiplayerBtn" prefHeight="35.0" prefWidth="150.0" text="Multiplayer" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

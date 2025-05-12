@@ -2,8 +2,8 @@ package ru.nsu.kuzminov.controller;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
-import ru.nsu.kuzminov.utils.Direction;
 import ru.nsu.kuzminov.game.Game;
+import ru.nsu.kuzminov.utils.Direction;
 
 /**
  * Класс для реализации игровой логики.
@@ -18,7 +18,7 @@ public class GameLogic implements EventHandler<KeyEvent> {
      * @param game           объект игры.
      * @param gridController контроллер поля javafx.
      */
-    GameLogic(Game game, GridController gridController) {
+    public GameLogic(Game game, GridController gridController) {
         this.game = game;
         this.gridController = gridController;
     }

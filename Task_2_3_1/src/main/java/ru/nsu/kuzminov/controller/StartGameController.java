@@ -34,7 +34,7 @@ public class StartGameController {
         int height = Integer.parseInt(heightArea.getText());
 
         Game game = initGame(width, height);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("snake-grid.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ru/nsu/kuzminov/snake-grid.fxml"));
         Parent root = loader.load();
         GridController controller = loader.getController();
         controller.setGame(game, (int) controller.getGridSize() / Math.max(height, width));

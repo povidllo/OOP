@@ -1,6 +1,5 @@
 package ru.nsu.kuzminov.controller;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,15 +24,6 @@ public class HostMenuController {
         game.lock.unlock();
 
         try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ru/nsu/kuzminov/snake-grid.fxml"));
-//            Parent gameRoot = loader.load();
-//
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            Scene scene = stage.getScene();
-//            scene.setRoot(gameRoot);
-//            stage.sizeToScene();
-//
-//            stage.show();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ru/nsu/kuzminov/online-snake-grid.fxml"));
             Parent root = loader.load();
             GridController controller = loader.getController();

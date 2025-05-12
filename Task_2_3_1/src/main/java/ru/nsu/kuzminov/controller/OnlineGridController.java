@@ -3,7 +3,6 @@ package ru.nsu.kuzminov.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import ru.nsu.kuzminov.game.Game;
 
 import java.lang.reflect.Method;

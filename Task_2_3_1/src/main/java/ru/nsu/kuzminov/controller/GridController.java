@@ -5,9 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import ru.nsu.kuzminov.game.Game;
 import ru.nsu.kuzminov.utils.Cell;
 import ru.nsu.kuzminov.utils.GameStatus;
-import ru.nsu.kuzminov.game.Game;
 
 /**
  * Класс, предоставляющий контроллер javafx для поля.

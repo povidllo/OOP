@@ -146,9 +146,6 @@ public class OnlineGameController {
     }
 
     private void stopThreads() {
-//        if (connectingThread != null && connectingThread.isAlive()) {
-//            connectingThread.interrupt();
-//        }
         for(var i : connectingThread) {
             if(i != null && i.isAlive()) {
                 i.interrupt();
