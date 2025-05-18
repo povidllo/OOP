@@ -29,7 +29,6 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'ru.nsu.kuzminov'
     mainClass = 'ru.nsu.kuzminov.SnakeApplication'
 }
 
